@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
+  <meta id="repository-name" content="github.com/onyxframework/onyx">
+  <title>Top Level Namespace - github.com/onyxframework/onyx</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" current" data-id="github.com/onyxframework/onyx/toplevel" data-name="top level namespace">
+      <a href="toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/onyxframework/onyx/Onyx" data-name="onyx">
+      <a href="Onyx.html">Onyx</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/onyxframework/onyx/Onyx/HTTP" data-name="onyx::http">
+      <a href="Onyx/HTTP.html">HTTP</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Singleton" data-name="onyx::http::singleton">
+      <a href="Onyx/HTTP/Singleton.html">Singleton</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  Top Level Namespace
+
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+
+
+
+
+
+
+
+  <h2>Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#custom_log_formatter-class-method" class="signature"><strong>custom_log_formatter</strong></a>
+        
+          <div class="summary"><p>A custom log formatter.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Macro Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#buildtime_env%28%2Aenv%29-macro" class="signature"><strong>buildtime_env</strong>(*env)</a>
+        
+          <div class="summary"><p>Define a required buildtime environment variable which would raise on missing.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#runtime_env%28%2Aenvs%29-macro" class="signature"><strong>runtime_env</strong>(*envs)</a>
+        
+          <div class="summary"><p>Define a required runtime environment variable which would raise on missing.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+  <h2>Method Detail</h2>
+  
+    <div class="entry-detail" id="custom_log_formatter-class-method">
+      <div class="signature">
+        
+        def <strong>custom_log_formatter</strong>
+
+        <a class="method-permalink" href="#custom_log_formatter-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>A custom log formatter.</p>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;./custom_log_formatter&quot;</span>
+logger <span class="o">=</span> <span class="t">Logger</span>.<span class="k">new</span>(<span class="t">STDOUT</span>, <span class="t">Logger</span><span class="t">::</span><span class="t">DEBUG</span>, custom_log_formatter)
+<span class="t">DEBUG</span> [<span class="n">12</span>:<span class="n">45</span>:<span class="n">52.520</span> <span class="c">#13543] Hello world!</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/utils/custom_log_formatter.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Macro Detail</h2>
+  
+    <div class="entry-detail" id="buildtime_env(*env)-macro">
+      <div class="signature">
+        
+        macro <strong>buildtime_env</strong>(*env)
+
+        <a class="method-permalink" href="#buildtime_env%28%2Aenv%29-macro">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a required buildtime environment variable which would raise on missing.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/utils/require_env.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="runtime_env(*envs)-macro">
+      <div class="signature">
+        
+        macro <strong>runtime_env</strong>(*envs)
+
+        <a class="method-permalink" href="#runtime_env%28%2Aenvs%29-macro">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a required runtime environment variable which would raise on missing.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/utils/require_env.cr#L2" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>

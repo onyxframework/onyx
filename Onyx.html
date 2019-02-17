@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
+  <meta id="repository-name" content="github.com/onyxframework/onyx">
+  <title>Onyx - github.com/onyxframework/onyx</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/toplevel" data-name="top level namespace">
+      <a href="toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/onyxframework/onyx/Onyx" data-name="onyx">
+      <a href="Onyx.html">Onyx</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="github.com/onyxframework/onyx/Onyx/HTTP" data-name="onyx::http">
+      <a href="Onyx/HTTP.html">HTTP</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Singleton" data-name="onyx::http::singleton">
+      <a href="Onyx/HTTP/Singleton.html">Singleton</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Onyx
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Onyx.html">Onyx</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>Powerful framework for modern applications. See <a href="https://onyxframework.org" target="_blank">onyxframework.org</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx.cr#L26" target="_blank">
+        onyx.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/db.cr#L6" target="_blank">
+        onyx/db.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http.cr#L2" target="_blank">
+        lib/onyx-http/src/onyx-http.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/logger.cr#L5" target="_blank">
+        onyx/logger.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L4" target="_blank">
+        onyx/http.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-rest/src/onyx-rest.cr#L3" target="_blank">
+        lib/onyx-rest/src/onyx-rest.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/rest.cr#L5" target="_blank">
+        onyx/rest.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/sql.cr#L5" target="_blank">
+        onyx/sql.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#db%3ADB%3A%3ADatabase-class-method" class="signature"><strong>.db</strong> : DB::Database</a>
+        
+          <div class="summary"><p>Top-level <code>DB::Database</code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#db%3D%28db%3ADB%3A%3ADatabase%29-class-method" class="signature"><strong>.db=</strong>(db : DB::Database)</a>
+        
+          <div class="summary"><p>Top-level <code>DB::Database</code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.delete</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a DELETE route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.delete</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a DELETE route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#draw%28%26block%29-class-method" class="signature"><strong>.draw</strong>(&block)</a>
+        
+          <div class="summary"><p>Draw routes for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exec%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.exec</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Call <code>Onyx::SQL::Repository#exec</code> on the top-level <code><a href="Onyx.html#repo%3AOnyx%3A%3ASQL%3A%3ARepository-class-method">.repo</a></code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.get</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a GET route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.get</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a GET route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#logger%3ALogger-class-method" class="signature"><strong>.logger</strong> : Logger</a>
+        
+          <div class="summary"><p>The top-level <code>Logger</code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#logger%3D%28logger%3ALogger%29-class-method" class="signature"><strong>.logger=</strong>(logger : Logger)</a>
+        
+          <div class="summary"><p>The top-level <code>Logger</code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.options</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a OPTIONS route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.options</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a OPTIONS route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#patch%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.patch</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a PATCH route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#patch%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.patch</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a PATCH route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.post</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a POST route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.post</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a POST route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#put%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.put</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a PUT route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#put%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.put</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a PUT route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#query%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.query</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Call <code>Onyx::SQL::Repository#query</code> on the top-level <code><a href="Onyx.html#repo%3AOnyx%3A%3ASQL%3A%3ARepository-class-method">.repo</a></code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#repo%3AOnyx%3A%3ASQL%3A%3ARepository-class-method" class="signature"><strong>.repo</strong> : Onyx::SQL::Repository</a>
+        
+          <div class="summary"><p>Top-level <code>Onyx::SQL::Repository instance</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#repo%3D%28repo%3AOnyx%3A%3ASQL%3A%3ARepository%29-class-method" class="signature"><strong>.repo=</strong>(repo : Onyx::SQL::Repository)</a>
+        
+          <div class="summary"><p>Top-level <code>Onyx::SQL::Repository instance</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#router-class-method" class="signature"><strong>.router</strong></a>
+        
+          <div class="summary"><p>The top-level <code>HTTP::Router</code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#scalar%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.scalar</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Call <code>Onyx::SQL::Repository#scalar</code> on the top-level <code><a href="Onyx.html#repo%3AOnyx%3A%3ASQL%3A%3ARepository-class-method">.repo</a></code> instance.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>Macro Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#listen%28host%3D%26quot%3Blocalhost%26quot%3B%2Cport%3D5000%2Creuse_port%3Dtrue%2C%26block%29-macro" class="signature"><strong>listen</strong>(host = <span class="s">&quot;localhost&quot;</span>, port = <span class="n">5000</span>, reuse_port = <span class="n">true</span>, &block)</a>
+        
+          <div class="summary"><p>Instantiate an <code>Onyx::HTTP::Server</code>, bind it to the <em>host</em> and <em>port</em> and start listening.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#render%28type%29-macro" class="signature"><strong>render</strong>(type)</a>
+        
+          <div class="summary"><p>Select a renderer for <code>Onyx::REST</code> top-level server instance.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="db:DB::Database-class-method">
+      <div class="signature">
+        
+        def self.<strong>db</strong> : DB::Database
+
+        <a class="method-permalink" href="#db%3ADB%3A%3ADatabase-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Top-level <code>DB::Database</code> instance. <strong>requires</strong> <code>DATABASE_URL</code> environment variable to be set.
+It will validate the connection on program run with <code><a href="Onyx.html#db%3ADB%3A%3ADatabase-class-method">Onyx.db</a><a href="Onyx.html#scalar%28%2Aargs%2C%2A%2Anargs%29-class-method">.scalar("SELECT 1")</a></code> call,
+raising of failure.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/db.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="db=(db:DB::Database)-class-method">
+      <div class="signature">
+        
+        def self.<strong>db=</strong>(db : DB::Database)
+
+        <a class="method-permalink" href="#db%3D%28db%3ADB%3A%3ADatabase%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Top-level <code>DB::Database</code> instance. <strong>requires</strong> <code>DATABASE_URL</code> environment variable to be set.
+It will validate the connection on program run with <code><a href="Onyx.html#db%3ADB%3A%3ADatabase-class-method">Onyx.db</a><a href="Onyx.html#scalar%28%2Aargs%2C%2A%2Anargs%29-class-method">.scalar("SELECT 1")</a></code> call,
+raising of failure.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/db.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>delete</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#delete%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a DELETE route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#delete</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>delete</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#delete%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a DELETE route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#delete</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="draw(&amp;block)-class-method">
+      <div class="signature">
+        
+        def self.<strong>draw</strong>(&block)
+
+        <a class="method-permalink" href="#draw%28%26block%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Draw routes for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#draw</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exec(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>exec</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#exec%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Call <code>Onyx::SQL::Repository#exec</code> on the top-level <code><a href="Onyx.html#repo%3AOnyx%3A%3ASQL%3A%3ARepository-class-method">.repo</a></code> instance.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/sql.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>get</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#get%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a GET route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#get</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>get</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#get%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a GET route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#get</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="logger:Logger-class-method">
+      <div class="signature">
+        
+        def self.<strong>logger</strong> : Logger
+
+        <a class="method-permalink" href="#logger%3ALogger-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The top-level <code>Logger</code> instance. Has a custom slim formatter and
+level depending on <code>CRYSTAL_ENV</code> environment variable:</p>
+
+<ul><li><code>"production"</code> -- <code>INFO</code></li><li>all other (including <code>nil</code>) -- <code>DEBUG</code></li></ul>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;onyx/logger&quot;</span>
+<span class="t">Onyx</span>.logger.debug(<span class="s">&quot;Hello world!&quot;</span>)
+<span class="c"># DEBUG [12:45:52.520 #13543] Hello world!</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/logger.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="logger=(logger:Logger)-class-method">
+      <div class="signature">
+        
+        def self.<strong>logger=</strong>(logger : Logger)
+
+        <a class="method-permalink" href="#logger%3D%28logger%3ALogger%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The top-level <code>Logger</code> instance. Has a custom slim formatter and
+level depending on <code>CRYSTAL_ENV</code> environment variable:</p>
+
+<ul><li><code>"production"</code> -- <code>INFO</code></li><li>all other (including <code>nil</code>) -- <code>DEBUG</code></li></ul>
+
+<pre><code><span class="k">require</span> <span class="s">&quot;onyx/logger&quot;</span>
+<span class="t">Onyx</span>.logger.debug(<span class="s">&quot;Hello world!&quot;</span>)
+<span class="c"># DEBUG [12:45:52.520 #13543] Hello world!</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/logger.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>options</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#options%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a OPTIONS route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#options</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>options</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#options%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a OPTIONS route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#options</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="patch(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>patch</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#patch%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a PATCH route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#patch</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="patch(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>patch</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#patch%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a PATCH route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#patch</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>post</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#post%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a POST route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#post</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>post</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#post%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a POST route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#post</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="put(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>put</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#put%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a PUT route for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#put</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="put(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>put</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#put%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a PUT route with block for the top-level <code><a href="Onyx.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#put</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="query(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>query</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#query%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Call <code>Onyx::SQL::Repository#query</code> on the top-level <code><a href="Onyx.html#repo%3AOnyx%3A%3ASQL%3A%3ARepository-class-method">.repo</a></code> instance.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/sql.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="repo:Onyx::SQL::Repository-class-method">
+      <div class="signature">
+        
+        def self.<strong>repo</strong> : Onyx::SQL::Repository
+
+        <a class="method-permalink" href="#repo%3AOnyx%3A%3ASQL%3A%3ARepository-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Top-level <code>Onyx::SQL::Repository instance</code>.
+Has <code><a href="Onyx.html#db%3ADB%3A%3ADatabase-class-method">Onyx.db</a></code> as a <em>db</em> and and <code><a href="Onyx.html#logger%3ALogger-class-method">Onyx.logger</a></code> as a <em>logger</em>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/sql.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="repo=(repo:Onyx::SQL::Repository)-class-method">
+      <div class="signature">
+        
+        def self.<strong>repo=</strong>(repo : Onyx::SQL::Repository)
+
+        <a class="method-permalink" href="#repo%3D%28repo%3AOnyx%3A%3ASQL%3A%3ARepository%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Top-level <code>Onyx::SQL::Repository instance</code>.
+Has <code><a href="Onyx.html#db%3ADB%3A%3ADatabase-class-method">Onyx.db</a></code> as a <em>db</em> and and <code><a href="Onyx.html#logger%3ALogger-class-method">Onyx.logger</a></code> as a <em>logger</em>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/sql.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="router-class-method">
+      <div class="signature">
+        
+        def self.<strong>router</strong>
+
+        <a class="method-permalink" href="#router-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The top-level <code>HTTP::Router</code> instance.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="scalar(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>scalar</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#scalar%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Call <code>Onyx::SQL::Repository#scalar</code> on the top-level <code><a href="Onyx.html#repo%3AOnyx%3A%3ASQL%3A%3ARepository-class-method">.repo</a></code> instance.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/sql.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>Macro Detail</h2>
+  
+    <div class="entry-detail" id="listen(host=&amp;quot;localhost&amp;quot;,port=5000,reuse_port=true,&amp;block)-macro">
+      <div class="signature">
+        
+        macro <strong>listen</strong>(host = <span class="s">&quot;localhost&quot;</span>, port = <span class="n">5000</span>, reuse_port = <span class="n">true</span>, &block)
+
+        <a class="method-permalink" href="#listen%28host%3D%26quot%3Blocalhost%26quot%3B%2Cport%3D5000%2Creuse_port%3Dtrue%2C%26block%29-macro">#</a>
+      </div>
+      
+        <div class="doc"><p>Instantiate an <code>Onyx::HTTP::Server</code>, bind it to the <em>host</em> and <em>port</em> and start listening.
+Routes for it are defined with top-level <code><a href="Onyx.html#get%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">Onyx.get</a></code> methods and its siblings.</p>
+
+<p>You can insert your custom code into the <code>&block</code>.
+At this point, <code>handlers</code> variable will be available.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="render(type)-macro">
+      <div class="signature">
+        
+        macro <strong>render</strong>(type)
+
+        <a class="method-permalink" href="#render%28type%29-macro">#</a>
+      </div>
+      
+        <div class="doc"><p>Select a renderer for <code>Onyx::REST</code> top-level server instance. Can be ither <code>:text</code> or <code>:json</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/rest.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>

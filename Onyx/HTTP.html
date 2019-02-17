@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "../";
+</script>
+
+  <meta id="repository-name" content="github.com/onyxframework/onyx">
+  <title>Onyx::HTTP - github.com/onyxframework/onyx</title>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/onyxframework/onyx/Onyx" data-name="onyx">
+      <a href="../Onyx.html">Onyx</a>
+      
+        <ul>
+  
+  <li class="parent open current" data-id="github.com/onyxframework/onyx/Onyx/HTTP" data-name="onyx::http">
+      <a href="../Onyx/HTTP.html">HTTP</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Singleton" data-name="onyx::http::singleton">
+      <a href="../Onyx/HTTP/Singleton.html">Singleton</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Onyx::HTTP
+
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http.cr#L3" target="_blank">
+        lib/onyx-http/src/onyx-http.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/cors.cr#L3" target="_blank">
+        lib/onyx-http/src/onyx-http/cors.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/logger.cr#L8" target="_blank">
+        lib/onyx-http/src/onyx-http/logger.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/request_id.cr#L6" target="_blank">
+        lib/onyx-http/src/onyx-http/request_id.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/rescuers/silent.cr#L4" target="_blank">
+        lib/onyx-http/src/onyx-http/rescuers/silent.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/router.cr#L8" target="_blank">
+        lib/onyx-http/src/onyx-http/router.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/rescuers/route_not_found.cr#L4" target="_blank">
+        lib/onyx-http/src/onyx-http/rescuers/route_not_found.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/rescuers/standard.cr#L7" target="_blank">
+        lib/onyx-http/src/onyx-http/rescuers/standard.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/response_time.cr#L3" target="_blank">
+        lib/onyx-http/src/onyx-http/response_time.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/lib/onyx-http/src/onyx-http/server.cr#L3" target="_blank">
+        lib/onyx-http/src/onyx-http/server.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/http.cr#L43" target="_blank">
+        onyx/http.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/0255aaf0d7a8ab7c358d105255107f5a8b8f183e/src/onyx/rest.cr#L19" target="_blank">
+        onyx/rest.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
