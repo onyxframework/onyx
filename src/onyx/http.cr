@@ -62,7 +62,7 @@ class Onyx
           HTTP::RequestID.new,
           HTTP::Logger.new(
             Onyx.logger,
-            query: ENV["CRYSTAL_ENV"] != "production"
+            query: ENV["CRYSTAL_ENV"]? != "production"
           ),
           HTTP::CORS.new,
           HTTP::Rescuers::Standard(Exception).new,
