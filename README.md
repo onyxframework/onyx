@@ -133,7 +133,7 @@ You **must** manually add [Onyx::HTTP](https://github.com/onyxframework/http) as
 
 ### REST
 
-Enables the singleton [Onyx::HTTP](https://github.com/onyxframework/rest) instance. It automatically requires [HTTP](#http) and adds `Onyx.render` method:
+Enables the singleton [Onyx::HTTP](https://github.com/onyxframework/rest) instance. It automatically requires [HTTP](#http) and adds `Onyx.render` and `Onyx.renderer` methods:
 
 ```crystal
 require "onyx/rest"
@@ -147,7 +147,9 @@ struct MyView
   text("foo = #{@foo}")
 end
 
-Onyx.render(:text) # Or :json
+Onyx.render(:text)
+# Equals to
+Onyx.renderer = Onyx::REST::Renderers::Text.new
 
 Onyx.get "/" do |env|
   env.response.view = MyView.new("bar")

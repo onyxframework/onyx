@@ -16,6 +16,14 @@ class Onyx
     {% end %}
   end
 
+  def self.renderer=(value)
+    HTTP::Singleton.instance.renderer = value
+  end
+
+  def self.renderer
+    HTTP::Singleton.instance.renderer
+  end
+
   module HTTP
     class Singleton
       @renderer : ::HTTP::Handler | Nil = nil
