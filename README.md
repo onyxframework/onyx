@@ -82,7 +82,7 @@ This feature is powered by [dotenv](https://github.com/gdotdesign/cr-dotenv) sha
 
 ### Logger
 
-Enables using the singleton `Onyx.logger` instance. It automatically requires [Env](#env).
+Enables using the singleton `Onyx.logger` instance.
 
 ```crystal
 require "onyx/logger"
@@ -96,7 +96,7 @@ DEBUG [12:45:52.520 #13543] Hello world!
 
 ### DB
 
-Enables using the singleton `Onyx.db` instance. It automatically requires [Env](#env) and **raises** if no `DATABASE_URL` environment variable is defined *or* the database is not reachable.
+Enables using the singleton `Onyx.db` instance. It **raises** if no `DATABASE_URL` environment variable is defined *or* the database is not reachable.
 
 ```crystal
 require "onyx/db"
@@ -106,7 +106,7 @@ Onyx.db.query("SELECT 1")
 
 ### HTTP
 
-Enables the singleton [Onyx::HTTP](https://github.com/onyxframework/http) instance. It automatically requires [Env](#env) and [Logger](#logger) and adds the following methods:
+Enables the singleton [Onyx::HTTP](https://github.com/onyxframework/http) instance. It automatically requires [Logger](#logger) and adds the following methods:
 
 * `Onyx.get`, `Onyx.post`, `Onyx.put`, `Onyx.patch`, `Onyx.delete` and `Onyx.options` which call the according [`Onyx::HTTP::Router`](https://api.onyxframework.org/http/Onyx/HTTP/Router.html) method
 * `Onyx.draw` which calls `Onyx::HTTP::Router#draw`
