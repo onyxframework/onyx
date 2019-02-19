@@ -107,7 +107,7 @@
 <pre><code class="language-yaml">dependencies:
   onyx:
     github: onyxframework/onyx
-    version: ~> 0.1.0</code></pre>
+    version: ~> 0.1.1</code></pre>
 
 <p>This shard follows <a href="http://semver.org/" target="_blank">Semantic Versioning v2.0.0</a>, so check <a href="https://github.com/onyxframework/rest/releases" target="_blank">releases</a> and change the <code>version</code> accordingly. Please visit <a href="https://github.com/crystal-lang/shards" target="_blank">github.com/crystal-lang/shards</a> to know more about Crystal shards.</p>
 
@@ -142,7 +142,7 @@ runtime_env <span class="t">DATABASE_URL</span> <span class="c"># Will raise on 
 
 <h3>Logger</h3>
 
-<p>Enables using the singleton <code>Onyx.logger</code> instance. It automatically requires <a href="#env" target="_blank">Env</a>.</p>
+<p>Enables using the singleton <code>Onyx.logger</code> instance.</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/logger&quot;</span>
 
@@ -152,7 +152,7 @@ runtime_env <span class="t">DATABASE_URL</span> <span class="c"># Will raise on 
 
 <h3>DB</h3>
 
-<p>Enables using the singleton <code>Onyx.db</code> instance. It automatically requires <a href="#env" target="_blank">Env</a> and <strong>raises</strong> if no <code>DATABASE_URL</code> environment variable is defined <em>or</em> the database is not reachable.</p>
+<p>Enables using the singleton <code>Onyx.db</code> instance. It <strong>raises</strong> if no <code>DATABASE_URL</code> environment variable is defined <em>or</em> the database is not reachable.</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/db&quot;</span>
 
@@ -160,7 +160,7 @@ runtime_env <span class="t">DATABASE_URL</span> <span class="c"># Will raise on 
 
 <h3>HTTP</h3>
 
-<p>Enables the singleton <a href="https://github.com/onyxframework/http" target="_blank">Onyx::HTTP</a> instance. It automatically requires <a href="#env" target="_blank">Env</a> and <a href="#logger" target="_blank">Logger</a> and adds the following methods:</p>
+<p>Enables the singleton <a href="https://github.com/onyxframework/http" target="_blank">Onyx::HTTP</a> instance. It automatically requires <a href="#logger" target="_blank">Logger</a> and adds the following methods:</p>
 
 <ul><li><code>Onyx.get</code>, <code>Onyx.post</code>, <code>Onyx.put</code>, <code>Onyx.patch</code>, <code>Onyx.delete</code> and <code>Onyx.options</code> which call the according <a href="https://api.onyxframework.org/http/Onyx/HTTP/Router.html" target="_blank"><code>Onyx::HTTP::Router</code></a> method</li><li><code>Onyx.draw</code> which calls <code>Onyx::HTTP::Router#draw</code></li><li><code>Onyx.listen</code> which launches the <a href="https://api.onyxframework.org/http/Onyx/HTTP/Server.html" target="_blank"><code>Onyx::HTTP::Server</code></a> instance</li></ul>
 
@@ -181,7 +181,7 @@ Hello Onyx</code></pre>
 
 <h3>REST</h3>
 
-<p>Enables the singleton <a href="https://github.com/onyxframework/rest" target="_blank">Onyx::HTTP</a> instance. It automatically requires <a href="#http" target="_blank">HTTP</a> and adds <code>Onyx.render</code> method:</p>
+<p>Enables the singleton <a href="https://github.com/onyxframework/rest" target="_blank">Onyx::HTTP</a> instance. It automatically requires <a href="#http" target="_blank">HTTP</a> and adds <code>Onyx.render</code> and <code>Onyx.renderer</code> methods:</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/rest&quot;</span>
 
@@ -194,7 +194,9 @@ Hello Onyx</code></pre>
   text(<span class="s">&quot;foo = </span><span class="i">#{</span>@foo<span class="i">}</span><span class="s">&quot;</span>)
 <span class="k">end</span>
 
-<span class="t">Onyx</span>.render(<span class="n">:text</span>) <span class="c"># Or :json</span>
+<span class="t">Onyx</span>.render(<span class="n">:text</span>)
+<span class="c"># Equals to</span>
+<span class="t">Onyx</span>.renderer <span class="o">=</span> <span class="t">Onyx</span><span class="t">::</span><span class="t">REST</span><span class="t">::</span><span class="t">Renderers</span><span class="t">::</span><span class="t">Text</span>.<span class="k">new</span>
 
 <span class="t">Onyx</span>.get <span class="s">&quot;/&quot;</span> <span class="k">do</span> <span class="o">|</span>env<span class="o">|</span>
   env.response.view <span class="o">=</span> <span class="t">MyView</span>.<span class="k">new</span>(<span class="s">&quot;bar&quot;</span>)
