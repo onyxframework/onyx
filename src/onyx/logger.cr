@@ -1,5 +1,4 @@
 require "logger"
-require "./utils/require_env"
 require "./utils/custom_log_formatter"
 
 class Onyx
