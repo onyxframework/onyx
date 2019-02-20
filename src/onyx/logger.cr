@@ -1,7 +1,7 @@
 require "logger"
 require "./utils/custom_log_formatter"
 
-class Onyx
+module Onyx
   # The top-level `Logger` instance. Has a custom slim formatter and
   # level depending on `CRYSTAL_ENV` environment variable:
   #

@@ -3,7 +3,7 @@ require "./utils/require_env"
 
 runtime_env DATABASE_URL
 
-class Onyx
+module Onyx
   # Top-level `DB::Database` instance. **requires** `DATABASE_URL` environment variable to be set.
   # It will validate the connection on program run with `Onyx.db.scalar("SELECT 1")` call,
   # raising of failure.

@@ -1,7 +1,7 @@
 require "onyx-http"
 require "./logger"
 
-class Onyx
+module Onyx
   {% for method in Onyx::HTTP::Router::HTTP_METHODS %}
     # Define a {{method.upcase.id}} route with block for the top-level `.router`.
     # See `HTTP::Router#{{method.id}}`.

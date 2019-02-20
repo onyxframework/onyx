@@ -2,7 +2,7 @@ require "./http"
 require "onyx-rest"
 require "./logger"
 
-class Onyx
+module Onyx
   # Select a renderer for `Onyx::REST` top-level server instance. Can be ither `:text` or `:json`.
   macro render(type)
     {% if type.id == "json".id %}

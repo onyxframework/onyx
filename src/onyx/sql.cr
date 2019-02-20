@@ -2,7 +2,7 @@ require "onyx-sql"
 require "./logger"
 require "./db"
 
-class Onyx
+module Onyx
   # Top-level `Onyx::SQL::Repository instance`.
   # Has `Onyx.db` as a *db* and and `Onyx.logger` as a *logger*.
   class_property repo : Onyx::SQL::Repository = Onyx::SQL::Repository.new(

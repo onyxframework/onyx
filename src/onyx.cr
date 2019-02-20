@@ -23,5 +23,5 @@
 #
 # `require "onyx/sql"` to enable top-level `Onyx.repo` instance and `Onyx.query`,
 # `Onyx.exec` and `Onyx.scalar` methods.
-class Onyx
+module Onyx
 end
