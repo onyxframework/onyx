@@ -16,10 +16,10 @@ dependencies:
 development_dependencies:
   onyx-http:
     github: onyxframework/http
-    version: ~> 0.1.0
+    version: ~> 0.1.1
   onyx-rest:
     github: onyxframework/rest
-    version: ~> 0.6.0
+    version: ~> 0.6.1
   onyx-sql:
     github: onyxframework/sql
-    version: ~> 0.6.0
+    version: ~> 0.6.1
