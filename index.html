@@ -164,6 +164,8 @@ runtime_env <span class="t">DATABASE_URL</span> <span class="c"># Will raise on 
 
 <ul><li><code>Onyx.get</code>, <code>Onyx.post</code>, <code>Onyx.put</code>, <code>Onyx.patch</code>, <code>Onyx.delete</code> and <code>Onyx.options</code> which call the according <a href="https://api.onyxframework.org/http/Onyx/HTTP/Router.html" target="_blank"><code>Onyx::HTTP::Router</code></a> method</li><li><code>Onyx.draw</code> which calls <code>Onyx::HTTP::Router#draw</code></li><li><code>Onyx.listen</code> which launches the <a href="https://api.onyxframework.org/http/Onyx/HTTP/Server.html" target="_blank"><code>Onyx::HTTP::Server</code></a> instance</li></ul>
 
+<p>⚠️ <strong>Note:</strong> You <strong>must</strong> manually add <a href="https://github.com/onyxframework/http" target="_blank">Onyx::HTTP</a> as a dependency in your <code>shard.yml</code>.</p>
+
 <p>Example:</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/http&quot;</span>
@@ -177,11 +179,11 @@ runtime_env <span class="t">DATABASE_URL</span> <span class="c"># Will raise on 
 <pre><code class="language-sh">> curl http://localhost:5000
 Hello Onyx</code></pre>
 
-<p>You <strong>must</strong> manually add <a href="https://github.com/onyxframework/http" target="_blank">Onyx::HTTP</a> as a dependency in your <code>shard.yml</code>.</p>
-
 <h3>REST</h3>
 
 <p>Enables the singleton <a href="https://github.com/onyxframework/rest" target="_blank">Onyx::HTTP</a> instance. It automatically requires <a href="#http" target="_blank">HTTP</a> and adds <code>Onyx.render</code> and <code>Onyx.renderer</code> methods:</p>
+
+<p>⚠️ <strong>Note:</strong> You <strong>must</strong> manually add <a href="https://github.com/onyxframework/rest" target="_blank">Onyx::REST</a> as a dependency in your <code>shard.yml</code>.</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/rest&quot;</span>
 
@@ -204,11 +206,11 @@ Hello Onyx</code></pre>
 
 <span class="t">Onyx</span>.listen</code></pre>
 
-<p>You <strong>must</strong> manually add <a href="https://github.com/onyxframework/rest" target="_blank">Onyx::REST</a> as a dependency in your <code>shard.yml</code>.</p>
-
 <h3>SQL</h3>
 
 <p>Enables the singleton <a href="https://github.com/onyxframework/sql" target="_blank">Onyx::SQL</a> <a href="https://api.onyxframework.org/sql/Onyx/SQL/Repository.html" target="_blank"><code>Repository</code></a> instance accessible with <code>Onyx.repo</code> method and also adds proxy <code>Onyx.query</code>, <code>Onyx.exec</code> and <code>Onyx.repo</code> methods. It automatically requires <a href="#env" target="_blank">Env</a> and <a href="#db" target="_blank">DB</a> (meaning that you <strong>must</strong> have <code>DATABASE_URL</code> variable defined).</p>
+
+<p>⚠️ <strong>Note:</strong> You <strong>must</strong> manually add <a href="https://github.com/onyxframework/sql" target="_blank">Onyx::SQL</a> as a dependency in your <code>shard.yml</code>.</p>
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/sql&quot;</span>
 
@@ -222,6 +224,35 @@ Hello Onyx</code></pre>
 <span class="k">end</span>
 
 users <span class="o">=</span> <span class="t">Onyx</span>.query(<span class="t">User</span>.where(id: <span class="n">42</span>)).first?</code></pre>
+
+<h3>EDA</h3>
+
+<p>Enables the singleton <a href="https://github.com/onyxframework/eda" target="_blank">Onyx::EDA</a> <a href="https://api.onyxframework.org/eda/Onyx/EDA/Channel.html" target="_blank"><code>Channel</code></a> instance accessible with <code>Onyx.channel</code> method and also adds proxy <code>Onyx.emit</code>, <code>Onyx.subscribe</code> and <code>Onyx.unsubscribe</code> methods. To change the channel type use <code>Onyx.channel(:redis)</code> macro. It automatically requires <a href="#env" target="_blank">Env</a> and <strong>requires</strong> the <code>REDIS_URL</code> variable defined.</p>
+
+<p>⚠️ <strong>Note:</strong> You <strong>must</strong> manually add <a href="https://github.com/onyxframework/eda" target="_blank">Onyx::EDA</a> as a dependency in your <code>shard.yml</code>.</p>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/eda&quot;</span>
+
+<span class="t">Onyx</span>.channel(<span class="n">:redis</span>)
+
+<span class="k">struct</span> <span class="t">MyEvent</span>
+  <span class="k">include</span> <span class="t">Onyx</span><span class="t">::</span><span class="t">EDA</span><span class="t">::</span><span class="t">Event</span>
+
+  getter foo
+
+  <span class="k">def</span> <span class="m">initialize</span>(@foo : <span class="t">String</span>)
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="t">Onyx</span>.subscribe(<span class="t">Object</span>, <span class="t">MyEvent</span>) <span class="k">do</span> <span class="o">|</span>event<span class="o">|</span>
+  pp event.foo
+<span class="k">end</span>
+
+<span class="t">Onyx</span>.emit(<span class="t">MyEvent</span>.<span class="k">new</span>(<span class="s">&quot;bar&quot;</span>))
+
+sleep(<span class="n">0.1</span>) <span class="c"># As the events are async</span>
+
+<span class="t">Onyx</span>.unsubscribe(<span class="t">Object</span>)</code></pre>
 
 <h2>Community 🍪</h2>
 
