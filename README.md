@@ -112,6 +112,8 @@ Enables the singleton [Onyx::HTTP](https://github.com/onyxframework/http) instan
 * `Onyx.draw` which calls `Onyx::HTTP::Router#draw`
 * `Onyx.listen` which launches the [`Onyx::HTTP::Server`](https://api.onyxframework.org/http/Onyx/HTTP/Server.html) instance
 
+⚠️ **Note:** You **must** manually add [Onyx::HTTP](https://github.com/onyxframework/http) as a dependency in your `shard.yml`.
+
 Example:
 
 ```crystal
@@ -129,11 +131,11 @@ Onyx.listen
 Hello Onyx
 ```
 
-You **must** manually add [Onyx::HTTP](https://github.com/onyxframework/http) as a dependency in your `shard.yml`.
-
 ### REST
 
 Enables the singleton [Onyx::HTTP](https://github.com/onyxframework/rest) instance. It automatically requires [HTTP](#http) and adds `Onyx.render` and `Onyx.renderer` methods:
+
+⚠️ **Note:** You **must** manually add [Onyx::REST](https://github.com/onyxframework/rest) as a dependency in your `shard.yml`.
 
 ```crystal
 require "onyx/rest"
@@ -158,11 +160,11 @@ end
 Onyx.listen
 ```
 
-You **must** manually add [Onyx::REST](https://github.com/onyxframework/rest) as a dependency in your `shard.yml`.
-
 ### SQL
 
 Enables the singleton [Onyx::SQL](https://github.com/onyxframework/sql) [`Repository`](https://api.onyxframework.org/sql/Onyx/SQL/Repository.html) instance accessible with `Onyx.repo` method and also adds proxy `Onyx.query`, `Onyx.exec` and `Onyx.repo` methods. It automatically requires [Env](#env) and [DB](#db) (meaning that you **must** have `DATABASE_URL` variable defined).
+
+⚠️ **Note:** You **must** manually add [Onyx::SQL](https://github.com/onyxframework/sql) as a dependency in your `shard.yml`.
 
 ```crystal
 require "onyx/sql"
