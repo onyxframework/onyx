@@ -179,6 +179,37 @@ end
 users = Onyx.query(User.where(id: 42)).first?
 ```
 
+### EDA
+
+Enables the singleton [Onyx::EDA](https://github.com/onyxframework/eda) [`Channel`](https://api.onyxframework.org/eda/Onyx/EDA/Channel.html) instance accessible with `Onyx.channel` method and also adds proxy `Onyx.emit`, `Onyx.subscribe` and `Onyx.unsubscribe` methods. To change the channel type use `Onyx.channel(:redis)` macro. It automatically requires [Env](#env) and **requires** the `REDIS_URL` variable defined.
+
+⚠️ **Note:** You **must** manually add [Onyx::EDA](https://github.com/onyxframework/eda) as a dependency in your `shard.yml`.
+
+```crystal
+require "onyx/eda"
+
+Onyx.channel(:redis)
+
+struct MyEvent
+  include Onyx::EDA::Event
+
+  getter foo
+
+  def initialize(@foo : String)
+  end
+end
+
+Onyx.subscribe(Object, MyEvent) do |event|
+  pp event.foo
+end
+
+Onyx.emit(MyEvent.new("bar"))
+
+sleep(0.1) # As the events are async
+
+Onyx.unsubscribe(Object)
+```
+
 ## Community 🍪
 
 There are multiple places to talk about this particular shard and about other ones as well:
