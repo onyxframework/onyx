@@ -30,6 +30,7 @@ This shard (should be called *Onyx/Onyx*) includes a number of convenient macros
 * [Onyx::HTTP macros](#http) for use with [Onyx::HTTP](https://github.com/onyxframework/http)
 * [Onyx::REST macros](#rest) for use with [Onyx::REST](https://github.com/onyxframework/rest)
 * [Onyx::SQL macros](#sql) for use with [Onyx::SQL](https://github.com/onyxframework/sql)
+* [Onyx::EDA macros](#eda) for use with [Onyx::EDA](https://github.com/onyxframework/eda)
 
 ## Installation 📥
 
