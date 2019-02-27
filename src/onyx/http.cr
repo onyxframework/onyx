@@ -16,6 +16,17 @@ module Onyx
     end
   {% end %}
 
+  # Define a "ws://" route with block for the top-level `.router`.
+  # See `HTTP::Router#ws`.
+  def self.ws(*args, **nargs, &block : HTTP::WebSocket, HTTP::Server::Context -> Nil)
+    Onyx::HTTP::Singleton.instance.router.ws(*args, **nargs, &block)
+  end
+
+  # ditto
+  def self.ws(*args, **nargs)
+    Onyx::HTTP::Singleton.instance.router.ws(*args, **nargs)
+  end
+
   # Draw routes for the top-level `.router`.
   # See `HTTP::Router#draw`.
   def self.draw(&block)
