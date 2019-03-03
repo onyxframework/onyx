@@ -2,17 +2,45 @@ require "./http"
 require "onyx-rest"
 
 module Onyx
-  # Select a renderer for `Onyx::REST` top-level server instance. Can be ither `:text` or `:json`.
-  macro render(type)
+  # Select a renderer for `Onyx::REST` singleton server instance. Can be `:text`, `:json`,
+  # `:template` or a name of a [Kilt](https://github.com/jeromegn/kilt)-compatible
+  # template shard (e.g. `:slang`).
+  #
+  # NOTE: You must add a template dependency in your `shard.yml` unless it's `:ecr`.
+  macro render(type, *, verbose = ENV["CRYSTAL_ENV"]? != "production", **options, &block)
     {% if type.id == "json".id %}
-      require "onyx-rest/renderers/json"
-      Onyx::HTTP::Singleton.instance.renderer = Onyx::REST::Renderers::JSON.new.as(HTTP::Handler)
+      require "onyx-rest/renderer/json"
+      Onyx::HTTP::Singleton.instance.renderer = Onyx::REST::Renderer::JSON.new(verbose: {{verbose}}).as(HTTP::Handler)
     {% elsif type.id == "text".id %}
-      require "onyx-rest/renderers/text"
-      Onyx::HTTP::Singleton.instance.renderer = Onyx::REST::Renderers::Text.new.as(HTTP::Handler)
+      require "onyx-rest/renderer/text"
+      Onyx::HTTP::Singleton.instance.renderer = Onyx::REST::Renderer::Text.new(verbose: {{verbose}}).as(HTTP::Handler)
     {% else %}
-      {% raise %Q[Unknown REST renderer #{type} (valid values are "text" and "json")] %}
+      {% unless type.id == "ecr".id || type.id == "template".id %}
+        require "kilt/{{type.id}}"
+      {% end %}
+
+      require "onyx-rest/renderer/template"
+
+      {% if block %}
+        %renderer = Onyx::REST::Renderer::Template.new(verbose: {{verbose}}{{", #{options.double_splat}".id unless options.empty?}}) do {{("|" + block.args.map(&.stringify).join(", ") + "|").id unless block.args.empty?}}
+            {{yield.id}}
+          end
+        Onyx::HTTP::Singleton.instance.renderer = %renderer.as(HTTP::Handler)
+      {% else %}
+        Onyx::HTTP::Singleton.instance.renderer = Onyx::REST::Renderer::Template.new(verbose: {{verbose}}{{", #{options.double_splat}".id unless options.empty?}}).as(HTTP::Handler)
+      {% end %}
     {% end %}
+  end
+
+  # Render a template at *path* into *io* with [Kilt](https://github.com/jeromegn/kilt).
+  #
+  # ```
+  # Onyx.render(env.response, "./hello.html.ecr")
+  # # Expands to
+  # Kilt.embed("./hello.html.ecr", env.response)
+  # ```
+  macro render(io, path)
+    Kilt.embed({{path}}, {{io}})
   end
 
   def self.renderer=(value)
