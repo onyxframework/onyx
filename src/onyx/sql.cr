@@ -1,5 +1,5 @@
 require "onyx-sql"
-require "./logger"
+require "../onyx"
 require "./db"
 
 module Onyx

@@ -1,6 +1,5 @@
 require "./http"
 require "onyx-rest"
-require "./logger"
 
 module Onyx
   # Select a renderer for `Onyx::REST` top-level server instance. Can be ither `:text` or `:json`.

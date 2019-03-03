@@ -1,4 +1,5 @@
 require "onyx-eda"
+require "../onyx"
 
 module Onyx
   # Top-level `Onyx::EDA::Channel` instance. It's in-memory by default.

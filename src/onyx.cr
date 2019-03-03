@@ -2,8 +2,8 @@
 #
 # # Cheatsheet:
 #
-# `require "onyx/env"` to read from `.env.*`, `.env.*.local` variables.
-# `require "onyx/logger"` to enable `Onyx.logger`
+# `require "onyx/env"` to read from `.env.*`, `.env.*.local` variables (required by default)
+# `require "onyx/logger"` to enable `Onyx.logger` (required by default)
 # `require "onyx/db"` to enable `Onyx.db`
 #
 # ## HTTP
@@ -25,3 +25,6 @@
 # `Onyx.exec` and `Onyx.scalar` methods.
 module Onyx
 end
+
+require "./onyx/env"
+require "./onyx/logger"

@@ -1,5 +1,5 @@
 require "onyx-http"
-require "./logger"
+require "../onyx"
 
 module Onyx
   {% for method in Onyx::HTTP::Router::HTTP_METHODS %}
