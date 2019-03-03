@@ -43,8 +43,8 @@ module Onyx
   #
   # You can insert your custom code into the `&block`.
   # At this point, `handlers` variable will be available.
-  macro listen(host = "localhost", port = 5000, reuse_port = false, &block)
-    handlers = Onyx::HTTP::Singleton.instance.handlers
+  macro listen(host = "localhost", port = 5000, reuse_port = false, **handler_options, &block)
+    handlers = Onyx::HTTP::Singleton.instance.handlers({{handler_options.double_splat}})
     {{yield.id}}
     server = Onyx::HTTP::Server.new(handlers, logger: Onyx.logger)
     server.bind_tcp({{host}}, {{port}}, reuse_port: {{reuse_port}})
@@ -67,7 +67,7 @@ module Onyx
 
       # The default set of handlers. See its source code to find out which handlers in particular.
       # You can in theory modify these handlers in the `Onyx.listen` block.
-      def handlers
+      def handlers(cors = nil)
         [
           HTTP::ResponseTime.new,
           HTTP::RequestID.new,
@@ -75,7 +75,7 @@ module Onyx
             Onyx.logger,
             query: ENV["CRYSTAL_ENV"]? != "production"
           ),
-          HTTP::CORS.new,
+          cors ? HTTP::CORS.new(**cors) : HTTP::CORS.new,
           HTTP::Rescuers::Standard(Exception).new,
           HTTP::Rescuers::RouteNotFound.new,
           router,

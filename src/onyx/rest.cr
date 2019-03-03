@@ -58,7 +58,7 @@ module Onyx
       # The singleton renderer instance.
       property renderer
 
-      def handlers
+      def handlers(cors = nil)
         [
           HTTP::ResponseTime.new,
           HTTP::RequestID.new,
@@ -66,7 +66,7 @@ module Onyx
             Onyx.logger,
             query: ENV["CRYSTAL_ENV"]? != "production"
           ),
-          HTTP::CORS.new,
+          cors ? HTTP::CORS.new(**cors) : HTTP::CORS.new,
           HTTP::Rescuers::Standard(Exception).new(renderer),
           HTTP::Rescuers::RouteNotFound.new(renderer),
           REST::Rescuer.new(renderer),
