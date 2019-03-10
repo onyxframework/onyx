@@ -3,7 +3,7 @@
 # Onyx
 
 [![Built with Crystal](https://img.shields.io/badge/built%20with-crystal-000000.svg?style=flat-square)](https://crystal-lang.org/)
-[![Travis CI build](https://img.shields.io/travis/onyxframework/onyx/master.svg?style=flat-square)](https://travis-ci.org/onyxframework/onyx)
+[![Travis CI build](https://img.shields.io/travis/onyxframework/onyx/stable.svg?style=flat-square)](https://travis-ci.org/onyxframework/onyx)
 [![API docs](https://img.shields.io/badge/api_docs-online-brightgreen.svg?style=flat-square)](https://api.onyxframework.org/onyx)
 [![Latest release](https://img.shields.io/github/release/onyxframework/onyx.svg?style=flat-square)](https://github.com/onyxframework/onyx/releases)
 
