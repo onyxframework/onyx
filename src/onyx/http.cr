@@ -2,7 +2,7 @@ require "onyx-http"
 require "../onyx"
 
 module Onyx
-  {% for method in Onyx::HTTP::Router::HTTP_METHODS %}
+  {% for method in Onyx::HTTP::Middleware::Router::HTTP_METHODS %}
     # Define a {{method.upcase.id}} route with block for the top-level `.router`.
     # See `HTTP::Router#{{method.id}}`.
     def self.{{method.id}}(*args, **nargs, &block : HTTP::Server::Context -> Nil)
@@ -38,6 +38,25 @@ module Onyx
     Onyx::HTTP::Singleton.instance.router
   end
 
+  # Render a template at *path* into *io* with [Kilt](https://github.com/jeromegn/kilt).
+  #
+  # ```
+  # Onyx.render(env.response, "./hello.html.ecr")
+  # # Expands to
+  # Kilt.embed("./hello.html.ecr", env.response)
+  # ```
+  macro render(io, path)
+    Kilt.embed({{path}}, {{io}})
+  end
+
+  def self.renderer=(value)
+    HTTP::Singleton.instance.renderer = value
+  end
+
+  def self.renderer
+    HTTP::Singleton.instance.renderer
+  end
+
   # Instantiate an `Onyx::HTTP::Server`, bind it to the *host* and *port* and start listening.
   # Routes for it are defined with top-level `Onyx.get` methods and its siblings.
   #
@@ -60,25 +79,37 @@ module Onyx
         @@instance ||= new
       end
 
-      @router = HTTP::Router.new
+      @router = Middleware::Router.new
 
       # The singleton `HTTP::Router` instance.
       property router
+
+      @renderer : ::HTTP::Handler = Middleware::Renderer.new(
+        verbose: ENV["CRYSTAL_ENV"]? != "production"
+      )
+
+      # The singleton renderer instance.
+      property renderer
 
       # The default set of handlers. See its source code to find out which handlers in particular.
       # You can in theory modify these handlers in the `Onyx.listen` block.
       def handlers(cors = nil)
         [
-          HTTP::ResponseTime.new,
-          HTTP::RequestID.new,
-          HTTP::Logger.new(
+          Middleware::ResponseTime.new,
+          Middleware::RequestID.new,
+          Middleware::Logger.new(
             Onyx.logger,
             query: ENV["CRYSTAL_ENV"]? != "production"
           ),
-          cors ? HTTP::CORS.new(**cors) : HTTP::CORS.new,
-          HTTP::Rescuers::Standard(Exception).new,
-          HTTP::Rescuers::RouteNotFound.new,
+          cors ? Middleware::CORS.new(**cors) : Middleware::CORS.new,
+          Middleware::Rescuer::Standard(Exception).new(
+            renderer,
+            Onyx.logger,
+            verbose: true, # Always be verbose with unhandled exceptions
+          ),
+          Middleware::Rescuer::Error.new(renderer),
           router,
+          renderer,
         ].compact!
       end
     end

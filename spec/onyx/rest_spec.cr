@@ -1,17 +1,17 @@
 require "../spec_helper"
-require "../../src/onyx/rest"
+require "../../src/onyx/http"
 
 struct TestView
-  include Onyx::REST::View
+  include Onyx::HTTP::View
 
   def initialize(@foo : String)
   end
 
-  text("foo = #{@foo}")
+  text "foo = #{@foo}"
 end
 
-struct TestAction
-  include Onyx::REST::Action
+struct TestEndpoint
+  include Onyx::HTTP::Endpoint
 
   params do
     form do
@@ -28,18 +28,16 @@ Onyx.get "/" do |env|
   env.response << "Hello Onyx"
 end
 
-Onyx.render(:text)
-
-Onyx.post "/action", TestAction
+Onyx.post "/endpoint", TestEndpoint
 
 spawn do
-  Onyx.listen(port: 4849)
+  Onyx.listen(port: 4890)
 end
 
 sleep(0.1)
 
 describe "onyx/rest" do
-  client = HTTP::Client.new(URI.parse("http://localhost:4849"))
+  client = HTTP::Client.new(URI.parse("http://localhost:4890"))
 
   it do
     response = client.get "/"
@@ -48,7 +46,7 @@ describe "onyx/rest" do
   end
 
   it do
-    response = client.post("/action", headers: HTTP::Headers{"Content-Type" => "application/x-www-form-urlencoded"}, body: "foo=bar")
+    response = client.post("/endpoint", headers: HTTP::Headers{"Content-Type" => "application/x-www-form-urlencoded"}, body: "foo=bar")
     response.status_code.should eq 200
     response.body.should eq "foo = bar"
   end

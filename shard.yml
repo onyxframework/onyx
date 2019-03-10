@@ -1,5 +1,5 @@
 name: onyx
-version: 0.2.0
+version: 0.3.0
 
 authors:
   - Vlad Faust <mail@vladfaust.com>
@@ -16,13 +16,10 @@ dependencies:
 development_dependencies:
   onyx-http:
     github: onyxframework/http
-    version: ~> 0.2.0
-  onyx-rest:
-    github: onyxframework/rest
     version: ~> 0.7.0
   onyx-sql:
     github: onyxframework/sql
-    version: ~> 0.6.1
+    version: ~> 0.7.0
   onyx-eda:
     github: onyxframework/eda
     version: ~> 0.2.0
