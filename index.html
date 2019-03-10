@@ -78,27 +78,32 @@
 <h1>Onyx</h1>
 
 <p><a href="https://crystal-lang.org/" target="_blank"><img src="https://img.shields.io/badge/built%20with-crystal-000000.svg?style=flat-square" alt="Built with Crystal"/></a>
-<a href="https://travis-ci.org/onyxframework/onyx" target="_blank"><img src="https://img.shields.io/travis/onyxframework/onyx/master.svg?style=flat-square" alt="Travis CI build"/></a>
+<a href="https://travis-ci.org/onyxframework/onyx" target="_blank"><img src="https://img.shields.io/travis/onyxframework/onyx/stable.svg?style=flat-square" alt="Travis CI build"/></a>
+<a href="https://docs.onyxframework.org" target="_blank"><img src="https://img.shields.io/badge/docs-online-brightgreen.svg?style=flat-square" alt="Docs"/></a>
 <a href="https://api.onyxframework.org/onyx" target="_blank"><img src="https://img.shields.io/badge/api_docs-online-brightgreen.svg?style=flat-square" alt="API docs"/></a>
 <a href="https://github.com/onyxframework/onyx/releases" target="_blank"><img src="https://img.shields.io/github/release/onyxframework/onyx.svg?style=flat-square" alt="Latest release"/></a></p>
 
-<p>Macros for easier development.</p>
+<p>Powerful framework for modern applications.</p>
 
-<h2>Supporters ❤️</h2>
+<h2>About 👋</h2>
 
-<p>Thanks to all my patrons, I can continue working on beautiful Open Source Software! 🙏</p>
+<p>Onyx Framework is a powerful general purpose framework for <a href="https://crystal-lang.org/" target="_blank">Crystal language</a>. It has the following goals:</p>
+
+<ul><li><strong>Joy</strong> for newcomers, yet an ability to scale with the developer's knowledge</li><li><strong>Type-safety</strong> on top of Crystal's amazing built-in type system</li><li><strong>Performance</strong> having minimum possible overhead</li></ul>
+
+<p>The framework consists of the following loosely coupled components:</p>
+
+<ul><li><a href="https://github.com/onyxframework/http" target="_blank">Onyx::HTTP</a> to build scalable web applications</li><li><a href="https://github.com/onyxframework/sql" target="_blank">Onyx::SQL</a> to add SQL models to your business layer</li><li><a href="https://github.com/onyxframework/eda" target="_blank">Onyx::EDA</a> to implement events-based reactivity</li></ul>
+
+<h2>Supporters 🕊</h2>
+
+<p>Thanks to all these patrons, the framework lives and prospers 🙏</p>
 
 <p><a href="https://github.com/ljuti" target="_blank">Lauri Jutila</a>, <a href="https://seendex.ru" target="_blank">Alexander Maslov</a>, Dainel Vera</p>
 
 <p><em>You can become a patron too in exchange of prioritized support and other perks</em></p>
 
 <p>&lt;a href="https://www.patreon.com/vladfaust">&lt;img height="50" src="https://onyxframework.org/img/patreon-button.svg">&lt;/a></p>
-
-<h2>About 👋</h2>
-
-<p>This shard (should be called <em>Onyx/Onyx</em>) includes a number of convenient macros for easier day-to-day development with the <a href="https://onyxframework.org" target="_blank">Onyx Framework</a>. It convers almost all of its components:</p>
-
-<ul><li>Top-level macros:</li><ul><li><a href="#env" target="_blank">Env</a> to load environment variables from <code>.env</code> files</li><li><a href="#logger" target="_blank">Logger</a> to enable <code>Onyx.logger</code></li><li><a href="#db" target="_blank">DB</a> to enable <code>Onyx.db</code></li></ul><li><a href="#http" target="_blank">Onyx::HTTP macros</a> for use with <a href="https://github.com/onyxframework/http" target="_blank">Onyx::HTTP</a></li><li><a href="#rest" target="_blank">Onyx::REST macros</a> for use with <a href="https://github.com/onyxframework/rest" target="_blank">Onyx::REST</a></li><li><a href="#sql" target="_blank">Onyx::SQL macros</a> for use with <a href="https://github.com/onyxframework/sql" target="_blank">Onyx::SQL</a></li><li><a href="#eda" target="_blank">Onyx::EDA macros</a> for use with <a href="https://github.com/onyxframework/eda" target="_blank">Onyx::EDA</a></li></ul>
 
 <h2>Installation 📥</h2>
 
@@ -107,7 +112,7 @@
 <pre><code class="language-yaml">dependencies:
   onyx:
     github: onyxframework/onyx
-    version: ~> 0.1.4</code></pre>
+    version: ~> 0.3.0</code></pre>
 
 <p>This shard follows <a href="http://semver.org/" target="_blank">Semantic Versioning v2.0.0</a>, so check <a href="https://github.com/onyxframework/rest/releases" target="_blank">releases</a> and change the <code>version</code> accordingly. Please visit <a href="https://github.com/crystal-lang/shards" target="_blank">github.com/crystal-lang/shards</a> to know more about Crystal shards.</p>
 
@@ -116,163 +121,24 @@
 <pre><code class="language-yaml">dependencies:
   onyx:
     github: onyxframework/onyx
-    version: ~> 0.1.0
+    version: ~> 0.3.0
   onyx-http:
     github: onyxframework/http
-    version: ~> 0.1.0</code></pre>
+    version: ~> 0.7.0</code></pre>
 
-<h2>Usage 💻</h2>
+<h2>Documentation 📚</h2>
 
-<h3>Env</h3>
-
-<p>Firstly sets <code>CRYSTAL_ENV</code> environment variable to <code>"development"</code> if not set yet. Then loads other environment variables from <code>.env</code> files in this order, overwriting if defined multiple times:</p>
-
-<ol><li><code>.env</code> file</li><li><code>.env.local</code> file</li><li><code>.env.#{CRYSTAL_ENV}</code> file</li><li><code>.env.#{CRYSTAL_ENV}.local</code> file</li></ol>
-
-<p>It also enables <code><a href="toplevel.html#runtime_env%28%2Aenvs%29-macro">.runtime_env</a></code> and <code><a href="toplevel.html#buildtime_env%28%2Aenv%29-macro">.buildtime_env</a></code> top-level macros which raise if an environment variable is not defined.</p>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/env&quot;</span>
-
-<span class="c"># At this point, all variables are loaded from .env files</span>
-<span class="c">#</span>
-
-runtime_env <span class="t">DATABASE_URL</span> <span class="c"># Will raise on program start if DATABASE_URL variable is missing</span></code></pre>
-
-<p>This feature is powered by <a href="https://github.com/gdotdesign/cr-dotenv" target="_blank">dotenv</a> shard by @gdotdesign.</p>
-
-<h3>Logger</h3>
-
-<p>Enables using the singleton <code>Onyx.logger</code> instance.</p>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/logger&quot;</span>
-
-<span class="t">Onyx</span>.logger.info(<span class="s">&quot;Hello world!&quot;</span>)</code></pre>
-
-<pre><code class="language-sh">DEBUG [12:45:52.520 #13543] Hello world!</code></pre>
-
-<h3>DB</h3>
-
-<p>Enables using the singleton <code>Onyx.db</code> instance. It <strong>raises</strong> if no <code>DATABASE_URL</code> environment variable is defined <em>or</em> the database is not reachable.</p>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/db&quot;</span>
-
-<span class="t">Onyx</span>.db.query(<span class="s">&quot;SELECT 1&quot;</span>)</code></pre>
-
-<h3>HTTP</h3>
-
-<p>Enables the singleton <a href="https://github.com/onyxframework/http" target="_blank">Onyx::HTTP</a> instance. It automatically requires <a href="#logger" target="_blank">Logger</a> and adds the following methods:</p>
-
-<ul><li><code>Onyx.get</code>, <code>Onyx.post</code>, <code>Onyx.put</code>, <code>Onyx.patch</code>, <code>Onyx.delete</code> and <code>Onyx.options</code> which call the according <a href="https://api.onyxframework.org/http/Onyx/HTTP/Router.html" target="_blank"><code>Onyx::HTTP::Router</code></a> method</li><li><code>Onyx.draw</code> which calls <code>Onyx::HTTP::Router#draw</code></li><li><code>Onyx.listen</code> which launches the <a href="https://api.onyxframework.org/http/Onyx/HTTP/Server.html" target="_blank"><code>Onyx::HTTP::Server</code></a> instance</li></ul>
-
-<p>⚠️ <strong>Note:</strong> You <strong>must</strong> manually add <a href="https://github.com/onyxframework/http" target="_blank">Onyx::HTTP</a> as a dependency in your <code>shard.yml</code>.</p>
-
-<p>Example:</p>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/http&quot;</span>
-
-<span class="t">Onyx</span>.get <span class="s">&quot;/&quot;</span> <span class="k">do</span> <span class="o">|</span>env<span class="o">|</span>
-  env.response <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello Onyx&quot;</span>
-<span class="k">end</span>
-
-<span class="t">Onyx</span>.listen</code></pre>
-
-<pre><code class="language-sh">> curl http://localhost:5000
-Hello Onyx</code></pre>
-
-<h3>REST</h3>
-
-<p>Enables the singleton <a href="https://github.com/onyxframework/rest" target="_blank">Onyx::HTTP</a> instance. It automatically requires <a href="#http" target="_blank">HTTP</a> and adds <code>Onyx.render</code> and <code>Onyx.renderer</code> methods:</p>
-
-<p>⚠️ <strong>Note:</strong> You <strong>must</strong> manually add <a href="https://github.com/onyxframework/rest" target="_blank">Onyx::REST</a> as a dependency in your <code>shard.yml</code>.</p>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/rest&quot;</span>
-
-<span class="k">struct</span> <span class="t">MyView</span>
-  <span class="k">include</span> <span class="t">Onyx</span><span class="t">::</span><span class="t">REST</span><span class="t">::</span><span class="t">View</span>
-
-  <span class="k">def</span> <span class="m">initialize</span>(@foo : <span class="t">String</span>)
-  <span class="k">end</span>
-
-  text(<span class="s">&quot;foo = </span><span class="i">#{</span>@foo<span class="i">}</span><span class="s">&quot;</span>)
-<span class="k">end</span>
-
-<span class="t">Onyx</span>.render(<span class="n">:text</span>)
-<span class="c"># Equals to</span>
-<span class="t">Onyx</span>.renderer <span class="o">=</span> <span class="t">Onyx</span><span class="t">::</span><span class="t">REST</span><span class="t">::</span><span class="t">Renderers</span><span class="t">::</span><span class="t">Text</span>.<span class="k">new</span>
-
-<span class="t">Onyx</span>.get <span class="s">&quot;/&quot;</span> <span class="k">do</span> <span class="o">|</span>env<span class="o">|</span>
-  env.response.view <span class="o">=</span> <span class="t">MyView</span>.<span class="k">new</span>(<span class="s">&quot;bar&quot;</span>)
-<span class="k">end</span>
-
-<span class="t">Onyx</span>.listen</code></pre>
-
-<h3>SQL</h3>
-
-<p>Enables the singleton <a href="https://github.com/onyxframework/sql" target="_blank">Onyx::SQL</a> <a href="https://api.onyxframework.org/sql/Onyx/SQL/Repository.html" target="_blank"><code>Repository</code></a> instance accessible with <code>Onyx.repo</code> method and also adds proxy <code>Onyx.query</code>, <code>Onyx.exec</code> and <code>Onyx.repo</code> methods. It automatically requires <a href="#env" target="_blank">Env</a> and <a href="#db" target="_blank">DB</a> (meaning that you <strong>must</strong> have <code>DATABASE_URL</code> variable defined).</p>
-
-<p>⚠️ <strong>Note:</strong> You <strong>must</strong> manually add <a href="https://github.com/onyxframework/sql" target="_blank">Onyx::SQL</a> as a dependency in your <code>shard.yml</code>.</p>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/sql&quot;</span>
-
-<span class="k">class</span> <span class="t">User</span>
-  <span class="k">include</span> <span class="t">Onyx</span><span class="t">::</span><span class="t">SQL</span><span class="t">::</span><span class="t">Model</span>
-
-  schema users <span class="k">do</span>
-    pkey id : <span class="t">Int32</span>
-    <span class="k">type</span> name : <span class="t">String</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-users <span class="o">=</span> <span class="t">Onyx</span>.query(<span class="t">User</span>.where(id: <span class="n">42</span>)).first?</code></pre>
-
-<h3>EDA</h3>
-
-<p>Enables the singleton <a href="https://github.com/onyxframework/eda" target="_blank">Onyx::EDA</a> <a href="https://api.onyxframework.org/eda/Onyx/EDA/Channel.html" target="_blank"><code>Channel</code></a> instance accessible with <code>Onyx.channel</code> method and also adds proxy <code>Onyx.emit</code>, <code>Onyx.subscribe</code> and <code>Onyx.unsubscribe</code> methods. To change the channel type use <code>Onyx.channel(:redis)</code> macro. It automatically requires <a href="#env" target="_blank">Env</a> and <strong>requires</strong> the <code>REDIS_URL</code> variable defined.</p>
-
-<p>⚠️ <strong>Note:</strong> You <strong>must</strong> manually add <a href="https://github.com/onyxframework/eda" target="_blank">Onyx::EDA</a> as a dependency in your <code>shard.yml</code>.</p>
-
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;onyx/eda&quot;</span>
-
-<span class="t">Onyx</span>.channel(<span class="n">:redis</span>)
-
-<span class="k">struct</span> <span class="t">MyEvent</span>
-  <span class="k">include</span> <span class="t">Onyx</span><span class="t">::</span><span class="t">EDA</span><span class="t">::</span><span class="t">Event</span>
-
-  getter foo
-
-  <span class="k">def</span> <span class="m">initialize</span>(@foo : <span class="t">String</span>)
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="t">Onyx</span>.subscribe(<span class="t">Object</span>, <span class="t">MyEvent</span>) <span class="k">do</span> <span class="o">|</span>event<span class="o">|</span>
-  pp event.foo
-<span class="k">end</span>
-
-<span class="t">Onyx</span>.emit(<span class="t">MyEvent</span>.<span class="k">new</span>(<span class="s">&quot;bar&quot;</span>))
-
-sleep(<span class="n">0.1</span>) <span class="c"># As the events are async</span>
-
-<span class="t">Onyx</span>.unsubscribe(<span class="t">Object</span>)</code></pre>
+<p>The documentation is available online at <a href="https://docs.onyxframework.org" target="_blank">docs.onyxframework.org</a>.</p>
 
 <h2>Community 🍪</h2>
 
 <p>There are multiple places to talk about this particular shard and about other ones as well:</p>
 
-<ul><li><a href="https://gitter.im/onyxframework/Lobby" target="_blank">Main Onyx Gitter chat</a></li><li><a href="https://gitter.im/onyxframework" target="_blank">Onyx Framework Gitter community</a></li><li><a href="https://gitter.im/vladfaust" target="_blank">Vlad Faust Gitter community</a></li><li><a href="https://twitter.com/onyxframework" target="_blank">Onyx Framework Twitter</a></li><li><a href="https://telegram.me/onyxframework" target="_blank">Onyx Framework Telegram channel</a></li></ul>
-
-<h2>Support ❤️</h2>
-
-<p>This shard is maintained by me, <a href="https://vladfaust.com" target="_blank">Vlad Faust</a>, a passionate developer with years of programming and product experience. I love creating Open-Source and I want to be able to work full-time on Open-Source projects.</p>
-
-<p>I will do my best to answer your questions in the free communication channels above, but if you want prioritized support, then please consider becoming my patron. Your issues will be labeled with your patronage status, and if you have a sponsor tier, then you and your team be able to communicate with me in private or semi-private channels such as e-mail and <a href="https://twist.com" target="_blank">Twist</a>. There are other perks to consider, so please, don't hesistate to check my Patreon page:</p>
-
-<p>&lt;a href="https://www.patreon.com/vladfaust">&lt;img height="50" src="https://onyxframework.org/img/patreon-button.svg">&lt;/a></p>
-
-<p>You could also help me a lot if you leave a star to this GitHub repository and spread the world about Crystal and Onyx! 📣</p>
+<ul><li><a href="https://gitter.im/onyxframework/Lobby" target="_blank">Gitter</a></li><li><a href="https://twitter.com/onyxframework" target="_blank">Twitter</a></li></ul>
 
 <h2>Contributing</h2>
 
-<ol><li>Fork it ( https://github.com/onyxframework/http/fork )</li><li>Create your feature branch (git checkout -b my-new-feature)</li><li>Commit your changes (git commit -am 'feat: some feature') using <a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit" target="_blank">Angular style commits</a></li><li>Push to the branch (git push origin my-new-feature)</li><li>Create a new Pull Request</li></ol>
+<ol><li>Fork it ( https://github.com/onyxframework/onyx/fork )</li><li>Create your feature branch (git checkout -b my-new-feature)</li><li>Commit your changes (git commit -am 'feat: some feature') using <a href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit" target="_blank">Angular style commits</a></li><li>Push to the branch (git push origin my-new-feature)</li><li>Create a new Pull Request</li></ol>
 
 <h2>Contributors</h2>
 

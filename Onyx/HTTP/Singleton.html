@@ -106,15 +106,8 @@ It is <strong>not</strong> initialized unless called.</p>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/050b650c5ff9e3f64cc970ade7d9f8ebe94554d1/src/onyx/http.cr#L57" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/351cc5375b899e7f64dc421a6ab0bfdcd96a52d8/src/onyx/http.cr#L76" target="_blank">
         onyx/http.cr
-      </a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/onyxframework/onyx/blob/050b650c5ff9e3f64cc970ade7d9f8ebe94554d1/src/onyx/rest.cr#L28" target="_blank">
-        onyx/rest.cr
       </a>
     
     <br/>
@@ -144,14 +137,14 @@ It is <strong>not</strong> initialized unless called.</p>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#handlers-instance-method" class="signature"><strong>#handlers</strong></a>
+        <a href="#handlers%28cors%3Dnil%29-instance-method" class="signature"><strong>#handlers</strong>(cors = <span class="n">nil</span>)</a>
         
           <div class="summary"><p>The default set of handlers.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#renderer%3AHTTP%3A%3AHandler%3F-instance-method" class="signature"><strong>#renderer</strong> : HTTP::Handler?</a>
+        <a href="#renderer%3AHTTP%3A%3AHandler-instance-method" class="signature"><strong>#renderer</strong> : HTTP::Handler</a>
         
           <div class="summary"><p>The singleton renderer instance.</p></div>
         
@@ -165,7 +158,7 @@ It is <strong>not</strong> initialized unless called.</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#router%3AOnyx%3A%3AHTTP%3A%3ARouter-instance-method" class="signature"><strong>#router</strong> : Onyx::HTTP::Router</a>
+        <a href="#router%3AOnyx%3A%3AHTTP%3A%3AMiddleware%3A%3ARouter-instance-method" class="signature"><strong>#router</strong> : Onyx::HTTP::Middleware::Router</a>
         
           <div class="summary"><p>The singleton <code>HTTP::Router</code> instance.</p></div>
         
@@ -226,7 +219,7 @@ It is <strong>not</strong> initialized unless called.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/050b650c5ff9e3f64cc970ade7d9f8ebe94554d1/src/onyx/http.cr#L59" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/351cc5375b899e7f64dc421a6ab0bfdcd96a52d8/src/onyx/http.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -236,31 +229,31 @@ It is <strong>not</strong> initialized unless called.</p>
 
   <h2>Instance Method Detail</h2>
   
-    <div class="entry-detail" id="handlers-instance-method">
+    <div class="entry-detail" id="handlers(cors=nil)-instance-method">
       <div class="signature">
         
-        def <strong>handlers</strong>
+        def <strong>handlers</strong>(cors = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#handlers-instance-method">#</a>
+        <a class="method-permalink" href="#handlers%28cors%3Dnil%29-instance-method">#</a>
       </div>
       
         <div class="doc"><p>The default set of handlers. See its source code to find out which handlers in particular.
-You can in theory modify these handlers in the <code><a href="../../Onyx.html#listen%28host%3D%26quot%3Blocalhost%26quot%3B%2Cport%3D5000%2Creuse_port%3Dtrue%2C%26block%29-macro">Onyx.listen</a></code> block.</p></div>
+You can in theory modify these handlers in the <code><a href="../../Onyx.html#listen%28host%3D%26quot%3B127.0.0.1%26quot%3B%2Cport%3D5000%2Creuse_port%3Dfalse%2C%2A%2Ahandler_options%2C%26block%29-macro">Onyx.listen</a></code> block.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/050b650c5ff9e3f64cc970ade7d9f8ebe94554d1/src/onyx/rest.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/351cc5375b899e7f64dc421a6ab0bfdcd96a52d8/src/onyx/http.cr#L96" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="renderer:HTTP::Handler?-instance-method">
+    <div class="entry-detail" id="renderer:HTTP::Handler-instance-method">
       <div class="signature">
         
-        def <strong>renderer</strong> : HTTP::Handler?
+        def <strong>renderer</strong> : HTTP::Handler
 
-        <a class="method-permalink" href="#renderer%3AHTTP%3A%3AHandler%3F-instance-method">#</a>
+        <a class="method-permalink" href="#renderer%3AHTTP%3A%3AHandler-instance-method">#</a>
       </div>
       
         <div class="doc"><p>The singleton renderer instance.</p></div>
@@ -268,7 +261,7 @@ You can in theory modify these handlers in the <code><a href="../../Onyx.html#li
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/050b650c5ff9e3f64cc970ade7d9f8ebe94554d1/src/onyx/rest.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/351cc5375b899e7f64dc421a6ab0bfdcd96a52d8/src/onyx/http.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -286,17 +279,17 @@ You can in theory modify these handlers in the <code><a href="../../Onyx.html#li
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/050b650c5ff9e3f64cc970ade7d9f8ebe94554d1/src/onyx/rest.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/351cc5375b899e7f64dc421a6ab0bfdcd96a52d8/src/onyx/http.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="router:Onyx::HTTP::Router-instance-method">
+    <div class="entry-detail" id="router:Onyx::HTTP::Middleware::Router-instance-method">
       <div class="signature">
         
-        def <strong>router</strong> : Onyx::HTTP::Router
+        def <strong>router</strong> : Onyx::HTTP::Middleware::Router
 
-        <a class="method-permalink" href="#router%3AOnyx%3A%3AHTTP%3A%3ARouter-instance-method">#</a>
+        <a class="method-permalink" href="#router%3AOnyx%3A%3AHTTP%3A%3AMiddleware%3A%3ARouter-instance-method">#</a>
       </div>
       
         <div class="doc"><p>The singleton <code>HTTP::Router</code> instance.</p></div>
@@ -304,7 +297,7 @@ You can in theory modify these handlers in the <code><a href="../../Onyx.html#li
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/050b650c5ff9e3f64cc970ade7d9f8ebe94554d1/src/onyx/http.cr#L66" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/351cc5375b899e7f64dc421a6ab0bfdcd96a52d8/src/onyx/http.cr#L85" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -322,7 +315,7 @@ You can in theory modify these handlers in the <code><a href="../../Onyx.html#li
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/050b650c5ff9e3f64cc970ade7d9f8ebe94554d1/src/onyx/http.cr#L66" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/351cc5375b899e7f64dc421a6ab0bfdcd96a52d8/src/onyx/http.cr#L85" target="_blank">View source</a>]
         
       </div>
     </div>
