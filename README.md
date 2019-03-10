@@ -4,33 +4,35 @@
 
 [![Built with Crystal](https://img.shields.io/badge/built%20with-crystal-000000.svg?style=flat-square)](https://crystal-lang.org/)
 [![Travis CI build](https://img.shields.io/travis/onyxframework/onyx/stable.svg?style=flat-square)](https://travis-ci.org/onyxframework/onyx)
+[![Docs](https://img.shields.io/badge/docs-online-brightgreen.svg?style=flat-square)](https://docs.onyxframework.org)
 [![API docs](https://img.shields.io/badge/api_docs-online-brightgreen.svg?style=flat-square)](https://api.onyxframework.org/onyx)
 [![Latest release](https://img.shields.io/github/release/onyxframework/onyx.svg?style=flat-square)](https://github.com/onyxframework/onyx/releases)
 
-Macros for easier development.
+Powerful framework for modern applications.
 
-## Supporters ❤️
+## About 👋
 
-Thanks to all my patrons, I can continue working on beautiful Open Source Software! 🙏
+Onyx Framework is a powerful general purpose framework for [Crystal language](https://crystal-lang.org/). It has the following goals:
+
+* **Joy** for newcomers, yet an ability to scale with the developer's knowledge
+* **Type-safety** on top of Crystal's amazing built-in type system
+* **Performance** having minimum possible overhead
+
+The framework consists of the following loosely coupled components:
+
+* [Onyx::HTTP](https://github.com/onyxframework/http) to build scalable web applications
+* [Onyx::SQL](https://github.com/onyxframework/sql) to add SQL models to your business layer
+* [Onyx::EDA](https://github.com/onyxframework/eda) to implement events-based reactivity
+
+## Supporters 🕊
+
+Thanks to all these patrons, the framework lives and prospers 🙏
 
 [Lauri Jutila](https://github.com/ljuti), [Alexander Maslov](https://seendex.ru), Dainel Vera
 
 *You can become a patron too in exchange of prioritized support and other perks*
 
 <a href="https://www.patreon.com/vladfaust"><img height="50" src="https://onyxframework.org/img/patreon-button.svg"></a>
-
-## About 👋
-
-This shard (should be called *Onyx/Onyx*) includes a number of convenient macros for easier day-to-day development with the [Onyx Framework](https://onyxframework.org). It convers almost all of its components:
-
-* Top-level macros:
-  * [Env](#env) to load environment variables from `.env` files
-  * [Logger](#logger) to enable `Onyx.logger`
-  * [DB](#db) to enable `Onyx.db`
-* [Onyx::HTTP macros](#http) for use with [Onyx::HTTP](https://github.com/onyxframework/http)
-* [Onyx::REST macros](#rest) for use with [Onyx::REST](https://github.com/onyxframework/rest)
-* [Onyx::SQL macros](#sql) for use with [Onyx::SQL](https://github.com/onyxframework/sql)
-* [Onyx::EDA macros](#eda) for use with [Onyx::EDA](https://github.com/onyxframework/eda)
 
 ## Installation 📥
 
@@ -57,185 +59,20 @@ dependencies:
     version: ~> 0.7.0
 ```
 
-## Usage 💻
+## Documentation 📚
 
-### Env
-
-Firstly sets `CRYSTAL_ENV` environment variable to `"development"` if not set yet. Then loads other environment variables from `.env` files in this order, overwriting if defined multiple times:
-
-1. `.env` file
-2. `.env.local` file
-3. `.env.#{CRYSTAL_ENV}` file
-3. `.env.#{CRYSTAL_ENV}.local` file
-
-It also enables `.runtime_env` and `.buildtime_env` top-level macros which raise if an environment variable is not defined.
-
-```crystal
-require "onyx/env"
-
-# At this point, all variables are loaded from .env files
-#
-
-runtime_env DATABASE_URL # Will raise on program start if DATABASE_URL variable is missing
-```
-
-This feature is powered by [dotenv](https://github.com/gdotdesign/cr-dotenv) shard by @gdotdesign.
-
-### Logger
-
-Enables using the singleton `Onyx.logger` instance.
-
-```crystal
-require "onyx/logger"
-
-Onyx.logger.info("Hello world!")
-```
-
-```sh
-DEBUG [12:45:52.520 #13543] Hello world!
-```
-
-### DB
-
-Enables using the singleton `Onyx.db` instance. It **raises** if no `DATABASE_URL` environment variable is defined *or* the database is not reachable.
-
-```crystal
-require "onyx/db"
-
-Onyx.db.query("SELECT 1")
-```
-
-### HTTP
-
-Enables the singleton [Onyx::HTTP](https://github.com/onyxframework/http) instance. It automatically requires [Logger](#logger) and adds the following methods:
-
-* `Onyx.get`, `Onyx.post`, `Onyx.put`, `Onyx.patch`, `Onyx.delete` and `Onyx.options` which call the according [`Onyx::HTTP::Router`](https://api.onyxframework.org/http/Onyx/HTTP/Router.html) method
-* `Onyx.draw` which calls `Onyx::HTTP::Router#draw`
-* `Onyx.listen` which launches the [`Onyx::HTTP::Server`](https://api.onyxframework.org/http/Onyx/HTTP/Server.html) instance
-
-⚠️ **Note:** You **must** manually add [Onyx::HTTP](https://github.com/onyxframework/http) as a dependency in your `shard.yml`.
-
-Example:
-
-```crystal
-require "onyx/http"
-
-Onyx.get "/" do |env|
-  env.response << "Hello Onyx"
-end
-
-Onyx.listen
-```
-
-```sh
-> curl http://localhost:5000
-Hello Onyx
-```
-
-### REST
-
-Enables the singleton [Onyx::HTTP](https://github.com/onyxframework/rest) instance. It automatically requires [HTTP](#http) and adds `Onyx.render` and `Onyx.renderer` methods:
-
-⚠️ **Note:** You **must** manually add [Onyx::REST](https://github.com/onyxframework/rest) as a dependency in your `shard.yml`.
-
-```crystal
-require "onyx/rest"
-
-struct MyView
-  include Onyx::REST::View
-
-  def initialize(@foo : String)
-  end
-
-  text("foo = #{@foo}")
-end
-
-Onyx.render(:text)
-# Equals to
-Onyx.renderer = Onyx::REST::Renderers::Text.new
-
-Onyx.get "/" do |env|
-  env.response.view = MyView.new("bar")
-end
-
-Onyx.listen
-```
-
-### SQL
-
-Enables the singleton [Onyx::SQL](https://github.com/onyxframework/sql) [`Repository`](https://api.onyxframework.org/sql/Onyx/SQL/Repository.html) instance accessible with `Onyx.repo` method and also adds proxy `Onyx.query`, `Onyx.exec` and `Onyx.repo` methods. It automatically requires [Env](#env) and [DB](#db) (meaning that you **must** have `DATABASE_URL` variable defined).
-
-⚠️ **Note:** You **must** manually add [Onyx::SQL](https://github.com/onyxframework/sql) as a dependency in your `shard.yml`.
-
-```crystal
-require "onyx/sql"
-
-class User
-  include Onyx::SQL::Model
-
-  schema users do
-    pkey id : Int32
-    type name : String
-  end
-end
-
-users = Onyx.query(User.where(id: 42)).first?
-```
-
-### EDA
-
-Enables the singleton [Onyx::EDA](https://github.com/onyxframework/eda) [`Channel`](https://api.onyxframework.org/eda/Onyx/EDA/Channel.html) instance accessible with `Onyx.channel` method and also adds proxy `Onyx.emit`, `Onyx.subscribe` and `Onyx.unsubscribe` methods. To change the channel type use `Onyx.channel(:redis)` macro. It automatically requires [Env](#env) and **requires** the `REDIS_URL` variable defined.
-
-⚠️ **Note:** You **must** manually add [Onyx::EDA](https://github.com/onyxframework/eda) as a dependency in your `shard.yml`.
-
-```crystal
-require "onyx/eda"
-
-Onyx.channel(:redis)
-
-struct MyEvent
-  include Onyx::EDA::Event
-
-  getter foo
-
-  def initialize(@foo : String)
-  end
-end
-
-Onyx.subscribe(Object, MyEvent) do |event|
-  pp event.foo
-end
-
-Onyx.emit(MyEvent.new("bar"))
-
-sleep(0.1) # As the events are async
-
-Onyx.unsubscribe(Object)
-```
+The documentation is available online at [docs.onyxframework.org](https://docs.onyxframework.org).
 
 ## Community 🍪
 
 There are multiple places to talk about this particular shard and about other ones as well:
 
-* [Main Onyx Gitter chat](https://gitter.im/onyxframework/Lobby)
-* [Onyx Framework Gitter community](https://gitter.im/onyxframework)
-* [Vlad Faust Gitter community](https://gitter.im/vladfaust)
-* [Onyx Framework Twitter](https://twitter.com/onyxframework)
-* [Onyx Framework Telegram channel](https://telegram.me/onyxframework)
-
-## Support ❤️
-
-This shard is maintained by me, [Vlad Faust](https://vladfaust.com), a passionate developer with years of programming and product experience. I love creating Open-Source and I want to be able to work full-time on Open-Source projects.
-
-I will do my best to answer your questions in the free communication channels above, but if you want prioritized support, then please consider becoming my patron. Your issues will be labeled with your patronage status, and if you have a sponsor tier, then you and your team be able to communicate with me in private or semi-private channels such as e-mail and [Twist](https://twist.com). There are other perks to consider, so please, don't hesistate to check my Patreon page:
-
-<a href="https://www.patreon.com/vladfaust"><img height="50" src="https://onyxframework.org/img/patreon-button.svg"></a>
-
-You could also help me a lot if you leave a star to this GitHub repository and spread the world about Crystal and Onyx! 📣
+* [Gitter](https://gitter.im/onyxframework/Lobby)
+* [Twitter](https://twitter.com/onyxframework)
 
 ## Contributing
 
-1. Fork it ( https://github.com/onyxframework/http/fork )
+1. Fork it ( https://github.com/onyxframework/onyx/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'feat: some feature') using [Angular style commits](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)
 4. Push to the branch (git push origin my-new-feature)
