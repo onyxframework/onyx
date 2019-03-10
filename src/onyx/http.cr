@@ -62,7 +62,7 @@ module Onyx
   #
   # You can insert your custom code into the `&block`.
   # At this point, `handlers` variable will be available.
-  macro listen(host = "localhost", port = 5000, reuse_port = false, **handler_options, &block)
+  macro listen(host = "127.0.0.1", port = 5000, reuse_port = false, **handler_options, &block)
     handlers = Onyx::HTTP::Singleton.instance.handlers({{handler_options.double_splat}})
     {{yield.id}}
     server = Onyx::HTTP::Server.new(handlers, logger: Onyx.logger)
