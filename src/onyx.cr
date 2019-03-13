@@ -26,5 +26,10 @@
 module Onyx
 end
 
+{% if env("BENCHMARK") %}
+  {% puts "Onyx: Building in BENCHMARK mode" %}
+  puts "Onyx: Running in BENCHMARK mode"
+{% end %}
+
 require "./onyx/env"
 require "./onyx/logger"

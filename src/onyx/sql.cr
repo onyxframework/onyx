@@ -7,7 +7,11 @@ module Onyx
   # Has `Onyx.db` as a *db* and and `Onyx.logger` as a *logger*.
   class_property repo : Onyx::SQL::Repository = Onyx::SQL::Repository.new(
     Onyx.db,
-    Onyx::SQL::Repository::Logger::Standard.new(Onyx.logger, ::Logger::Severity::DEBUG)
+    {% if env("BENCHMARK") %}
+      Onyx::SQL::Repository::Logger::Dummy.new,
+    {% else %}
+      Onyx::SQL::Repository::Logger::Standard.new(Onyx.logger, ::Logger::Severity::DEBUG),
+    {% end %}
   )
 
   # Call `Onyx::SQL::Repository#query` on the top-level `.repo` instance.

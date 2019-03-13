@@ -84,9 +84,15 @@ module Onyx
       # The singleton `HTTP::Router` instance.
       property router
 
-      @renderer : ::HTTP::Handler = Middleware::Renderer.new(
-        verbose: ENV["CRYSTAL_ENV"]? != "production"
-      )
+      {% begin %}
+        @renderer : ::HTTP::Handler = Middleware::Renderer.new(
+          {% if env("BENCHMARK") %}
+            verbose: false,
+          {% else %}
+            verbose: ENV["CRYSTAL_ENV"]? != "production",
+          {% end %}
+        )
+      {% end %}
 
       # The singleton renderer instance.
       property renderer
@@ -94,23 +100,32 @@ module Onyx
       # The default set of handlers. See its source code to find out which handlers in particular.
       # You can in theory modify these handlers in the `Onyx.listen` block.
       def handlers(cors = nil)
-        [
-          Middleware::ResponseTime.new,
-          Middleware::RequestID.new,
-          Middleware::Logger.new(
-            Onyx.logger,
-            query: ENV["CRYSTAL_ENV"]? != "production"
-          ),
-          cors ? Middleware::CORS.new(**cors) : Middleware::CORS.new,
-          Middleware::Rescuer::Standard(Exception).new(
+        {% if env("BENCHMARK") %}
+          [
+            Middleware::Rescuer::Silent(Exception).new(renderer),
+            Middleware::Rescuer::Error.new(renderer),
+            router,
             renderer,
-            Onyx.logger,
-            verbose: true, # Always be verbose with unhandled exceptions
-          ),
-          Middleware::Rescuer::Error.new(renderer),
-          router,
-          renderer,
-        ].compact!
+          ].compact!
+        {% else %}
+          [
+            Middleware::ResponseTime.new,
+            Middleware::RequestID.new,
+            Middleware::Logger.new(
+              Onyx.logger,
+              query: ENV["CRYSTAL_ENV"]? != "production"
+            ),
+            cors ? Middleware::CORS.new(**cors) : Middleware::CORS.new,
+            Middleware::Rescuer::Standard(Exception).new(
+              renderer,
+              Onyx.logger,
+              verbose: true, # Always be verbose with unhandled exceptions
+            ),
+            Middleware::Rescuer::Error.new(renderer),
+            router,
+            renderer,
+          ].compact!
+        {% end %}
       end
     end
   end
