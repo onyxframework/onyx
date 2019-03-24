@@ -1,6 +1,8 @@
 require "onyx-http"
 require "../onyx"
 
+runtime_env CRYSTAL_ENV
+
 module Onyx
   {% for method in Onyx::HTTP::Middleware::Router::HTTP_METHODS %}
     # Define a {{method.upcase.id}} route with block for the top-level `.router`.
@@ -84,15 +86,9 @@ module Onyx
       # The singleton `HTTP::Router` instance.
       property router
 
-      {% begin %}
-        @renderer : ::HTTP::Handler = Middleware::Renderer.new(
-          {% if env("BENCHMARK") %}
-            verbose: false,
-          {% else %}
-            verbose: ENV["CRYSTAL_ENV"]? != "production",
-          {% end %}
-        )
-      {% end %}
+      @renderer : ::HTTP::Handler = Middleware::Renderer.new(
+        verbose: !%w(production benchmarking).includes?(ENV["CRYSTAL_ENV"]),
+      )
 
       # The singleton renderer instance.
       property renderer
@@ -100,20 +96,20 @@ module Onyx
       # The default set of handlers. See its source code to find out which handlers in particular.
       # You can in theory modify these handlers in the `Onyx.listen` block.
       def handlers(cors = nil)
-        {% if env("BENCHMARK") %}
+        if ENV["CRYSTAL_ENV"] == "benchmarking"
           [
             Middleware::Rescuer::Silent(Exception).new(renderer),
             Middleware::Rescuer::Error.new(renderer),
             router,
             renderer,
           ].compact!
-        {% else %}
+        else
           [
             Middleware::ResponseTime.new,
             Middleware::RequestID.new,
             Middleware::Logger.new(
               Onyx.logger,
-              query: ENV["CRYSTAL_ENV"]? != "production"
+              query: ENV["CRYSTAL_ENV"] != "production"
             ),
             cors ? Middleware::CORS.new(**cors) : Middleware::CORS.new,
             Middleware::Rescuer::Standard(Exception).new(
@@ -125,7 +121,7 @@ module Onyx
             router,
             renderer,
           ].compact!
-        {% end %}
+        end
       end
     end
   end

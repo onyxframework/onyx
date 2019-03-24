@@ -26,10 +26,9 @@
 module Onyx
 end
 
-{% if env("BENCHMARK") %}
-  {% puts "Onyx: Building in BENCHMARK mode" %}
-  puts "Onyx: Running in BENCHMARK mode"
-{% end %}
-
 require "./onyx/env"
 require "./onyx/logger"
+
+if ENV["CRYSTAL_ENV"] == "benchmarking"
+  puts " ONYX ".colorize(:black).back(:white).mode(:bold).to_s + " Running in \"benchmarking\" environment — all output is muted"
+end
