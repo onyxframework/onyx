@@ -1,9 +1,15 @@
 language: crystal
+services:
+  - postgresql
+  - docker
 before_install:
+  - docker run -p 6379:6379 -d redis
   - nvm install 9
   - npm install shelljs got
+before_script:
+  - psql -c 'create database test;' -U postgres
 script:
-  - crystal spec
+  - env FOO=bar DATABASE_URL=postgres://postgres@localhost:5432/test REDIS_URL=redis://localhost:6379 crystal spec
   - crystal docs
 after_success:
   - node .travis/trigger-dependant-builds.js
@@ -16,3 +22,5 @@ deploy:
     tags: true
     condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+$
   local_dir: docs
+addons:
+  postgresql: "9.5"

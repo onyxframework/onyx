@@ -30,4 +30,28 @@ module Onyx::SQL
   def self.scalar(*args, **nargs)
     repo.scalar(*args, **nargs)
   end
+
+  # Put the `.repo`'s current database connection into  transaction mode and yield
+  # that [`DB::Transaction`](http://crystal-lang.github.io/crystal-db/api/0.5.1/DB/Transaction.html) object.
+  #
+  # All repository requests would be made within the transaction.
+  # The transaction is closed after the yield unless it's explicitly closed before
+  # (i.e. committed or rolled back).
+  #
+  # ```
+  # Onyx::SQL.transaction do |tx|
+  #   Onyx.query(User.where(id: 1)) # Request is made within the transaction
+  #   tx.connection                 # You have access to the raw `DB::Connection` instance
+  # end
+  # ```
+  def self.transaction(&block : ::DB::Transaction ->)
+    previous_db = repo.db
+
+    repo.db.transaction do |tx|
+      repo.db = tx.connection
+      yield(tx)
+      tx.close unless tx.closed?
+      repo.db = previous_db
+    end
+  end
 end
