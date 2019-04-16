@@ -1,5 +1,6 @@
 require "../spec_helper"
 require "../../src/onyx/http"
+require "../../src/onyx/http/spec"
 
 struct TestView
   include Onyx::HTTP::View
@@ -28,26 +29,35 @@ Onyx::HTTP.get "/" do |env|
   env.response << "Hello Onyx"
 end
 
-Onyx::HTTP.post "/endpoint", TestEndpoint
-
-spawn do
-  Onyx::HTTP.listen(port: 4890)
+Onyx::HTTP.ws "/echo" do |socket|
+  socket.on_message do |message|
+    socket.send(message)
+  end
 end
 
-sleep(0.1)
+Onyx::HTTP.post "/endpoint", TestEndpoint
 
-describe "onyx/rest" do
-  client = HTTP::Client.new(URI.parse("http://localhost:4890"))
+Onyx::HTTP.listen
 
-  it do
-    response = client.get "/"
-    response.status_code.should eq 200
-    response.body.should eq "Hello Onyx"
+describe "onyx/http" do
+  describe "/" do
+    it "returns 200 Hello Onyx" do
+      response = Onyx::HTTP::Spec.get("/")
+      response.assert(200, "Hello Onyx")
+    end
   end
 
-  it do
-    response = client.post("/endpoint", headers: HTTP::Headers{"Content-Type" => "application/x-www-form-urlencoded"}, body: "foo=bar")
-    response.status_code.should eq 200
-    response.body.should eq "foo = bar"
+  describe "/endpoint" do
+    it "returns 200 foo=bar" do
+      response = Onyx::HTTP::Spec.post("/endpoint", headers: HTTP::Headers{"Content-Type" => "application/x-www-form-urlencoded"}, body: "foo=bar")
+      response.assert(200, "foo = bar")
+    end
+  end
+
+  describe "ws://echo" do
+    it "echoes" do
+      socket = Onyx::HTTP::Spec.ws("/echo")
+      socket.assert_response("ping", "ping")
+    end
   end
 end
