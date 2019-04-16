@@ -4,9 +4,10 @@ require "./utils/require_env"
 runtime_env DATABASE_URL
 
 module Onyx
-  # Top-level `DB::Database` instance. **requires** `DATABASE_URL` environment variable to be set.
-  # It will validate the connection on program run with `Onyx.db.scalar("SELECT 1")` call,
-  # raising of failure.
+  # Singleton `DB::Database` instance.
+  # It **requires** `DATABASE_URL` environment variable to be set.
+  # It would validate the connection on program run with
+  # `Onyx.db.scalar("SELECT 1")` call, raising of failure.
   class_property db : DB::Database = DB.open(ENV["DATABASE_URL"])
 
   begin

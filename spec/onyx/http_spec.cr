@@ -24,14 +24,14 @@ struct TestEndpoint
   end
 end
 
-Onyx.get "/" do |env|
+Onyx::HTTP.get "/" do |env|
   env.response << "Hello Onyx"
 end
 
-Onyx.post "/endpoint", TestEndpoint
+Onyx::HTTP.post "/endpoint", TestEndpoint
 
 spawn do
-  Onyx.listen(port: 4890)
+  Onyx::HTTP.listen(port: 4890)
 end
 
 sleep(0.1)

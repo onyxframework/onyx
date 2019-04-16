@@ -1,5 +1,5 @@
 require "../spec_helper"
-require "../../src/onyx/eda"
+require "../../src/onyx/eda/memory"
 
 struct TestEvent
   include Onyx::EDA::Event
@@ -10,14 +10,14 @@ struct TestEvent
   end
 end
 
-describe "onyx/eda" do
+describe "onyx/eda/memory" do
   test_string = ""
 
-  Onyx.subscribe(Object, TestEvent) do |event|
+  sub = Onyx::EDA.memory.subscribe(TestEvent) do |event|
     test_string = event.foo
   end
 
-  Onyx.emit(TestEvent.new("bar"))
+  Onyx::EDA.memory.emit(TestEvent.new("bar"))
 
   sleep(0.1)
 
@@ -25,5 +25,5 @@ describe "onyx/eda" do
     test_string.should eq "bar"
   end
 
-  Onyx.unsubscribe(Object)
+  sub.unsubscribe
 end

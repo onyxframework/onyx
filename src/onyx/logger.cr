@@ -5,7 +5,7 @@ require "./utils/require_env"
 runtime_env CRYSTAL_ENV
 
 module Onyx
-  # The top-level `Logger` instance. Has a custom slim formatter and
+  # The singleton `Logger` instance. It has a custom slim formatter and
   # level depending on `CRYSTAL_ENV` environment variable:
   #
   # * `"production"` -- `INFO`

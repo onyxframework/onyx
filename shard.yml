@@ -22,4 +22,4 @@ development_dependencies:
     version: ~> 0.7.0
   onyx-eda:
     github: onyxframework/eda
-    branch: development
+    tag: v0.3.0-rc.1
