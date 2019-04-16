@@ -1,28 +1,34 @@
-# Top-level macros for eaiser development.
+# Singletons and macros for eaiser development.
 #
 # # Cheatsheet:
 #
-# `require "onyx/env"` to read from `.env.*`, `.env.*.local` variables (required by default)
-# `require "onyx/logger"` to enable `Onyx.logger` (required by default)
-# `require "onyx/db"` to enable `Onyx.db`
+# `require "onyx/env"` to read from `.env.*`, `.env.*.local` variables
+# `require "onyx/logger"` to enable `Onyx.logger`
+# `require "onyx"` to require both above
+# `require "onyx/db"` to enable singleton `Onyx.db` (automatically required
+# with `"onyx/sql"`)
+#
+# `"onyx"` is required by default in all the components below,
+# so you don't have to require it explicitly.
 #
 # ## HTTP
 #
-# `require "onyx/http"` to enable the top-level HTTP server instance and these methods:
+# `require "onyx/http"` to enable the singleton HTTP server instance and these methods:
 #
-# * `Onyx.get`, `Onyx.post`, `Onyx.put`, `Onyx.patch`, `Onyx.delete` and `Onyx.options`
-# * `Onyx.draw`
-# * `Onyx.listen`
-#
-# ## REST
-#
-# `require "onyx/rest"` to enable the top-level REST server instance and `Onyx.render`.
-# This *includes* `"onyx/http"`, so you don't need to `require` it explicitly
+# * `Onyx::HTTP.get`, `Onyx::HTTP.post`, `Onyx::HTTP.put`,
+# `Onyx::HTTP.patch`, `Onyx::HTTP.delete` and `Onyx::HTTP.options`
+# * `Onyx::HTTP.draw`
+# * `Onyx::HTTP.listen`
 #
 # ## SQL
 #
-# `require "onyx/sql"` to enable top-level `Onyx.repo` instance and `Onyx.query`,
-# `Onyx.exec` and `Onyx.scalar` methods.
+# `require "onyx/sql"` to enable singleton `Onyx.repo` instance and `Onyx::SQL.query`,
+# `Onyx::SQL.exec`, `Onyx::SQL.scalar` and `Onyx::SQL.transaction` methods.
+#
+# ## EDA
+#
+# `require "onyx/eda/memory"` and/or `require "onyx/eda/redis"` to enable singleton
+# channel instance and according methods, for example, `Onyx::EDA.memory.subscribe`.
 module Onyx
 end
 
