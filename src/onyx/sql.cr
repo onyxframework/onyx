@@ -50,8 +50,9 @@ module Onyx::SQL
     repo.db.transaction do |tx|
       repo.db = tx.connection
       yield(tx)
-      tx.close unless tx.closed?
       repo.db = previous_db
+    ensure
+      tx.commit unless tx.closed?
     end
   end
 end
