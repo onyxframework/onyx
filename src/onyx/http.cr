@@ -31,8 +31,8 @@ module Onyx::HTTP
 
   # Draw routes for the singleton `.router`.
   # See `HTTP::Router#draw`.
-  def self.draw(&block)
-    with Onyx::HTTP::Singleton.instance.router yield
+  def self.on(*args, **nargs, &block : Onyx::HTTP::Middleware::Router ->)
+    Onyx::HTTP::Singleton.instance.router.on(*args, **nargs, &block)
   end
 
   # The singleton `HTTP::Router` instance.

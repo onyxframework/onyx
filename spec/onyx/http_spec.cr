@@ -29,6 +29,16 @@ Onyx::HTTP.get "/" do |env|
   env.response << "Hello Onyx"
 end
 
+Onyx::HTTP.on do |r|
+  r.on "/foo" do
+    r.on "/:bar" do
+      r.get "/" do |env|
+        env.response << "Hello from /foo/#{env.request.path_params["bar"]}"
+      end
+    end
+  end
+end
+
 Onyx::HTTP.ws "/echo" do |socket|
   socket.on_message do |message|
     socket.send(message)
@@ -44,6 +54,13 @@ describe "onyx/http" do
     it "returns 200 Hello Onyx" do
       response = Onyx::HTTP::Spec.get("/")
       response.assert(200, "Hello Onyx")
+    end
+  end
+
+  describe "/foo/bar" do
+    it "returns 200 Hello from /foo/bar" do
+      response = Onyx::HTTP::Spec.get("/foo/baz")
+      response.assert(200, "Hello from /foo/baz")
     end
   end
 
