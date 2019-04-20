@@ -16,13 +16,13 @@ dependencies:
 development_dependencies:
   onyx-http:
     github: onyxframework/http
-    tag: v0.8.0-rc.1
+    version: ~> 0.8.0
   pg:
     github: will/crystal-pg
     version: ~> 0.16.0
   onyx-sql:
     github: onyxframework/sql
-    tag: v0.8.0-rc.1
+    version: ~> 0.8.0
   onyx-eda:
     github: onyxframework/eda
-    tag: v0.3.0-rc.1
+    version: ~> 0.3.0
