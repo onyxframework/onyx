@@ -48,8 +48,11 @@ module Onyx::HTTP
     # require "../my_server"
     #
     # it "echoes" do
-    #   socket = Onyx::HTTP::Spec.ws("/echo")
-    #   socket.assert_response("hello", "hello")
+    #   socket = Onyx::HTTP::Spec.ws("/")
+    #   socket.assert_response("ping", "pong")
+    #   # Or
+    #   socket.send("ping")
+    #   socket.assert_response("pong")
     # end
     # ```
     def self.ws(path : String, headers : ::HTTP::Headers = ::HTTP::Headers.new)
@@ -62,24 +65,39 @@ module Onyx::HTTP
       # Direct response accessor, if needed.
       getter response : ::HTTP::Client::Response
 
-      def initialize(@response)
+      # `#response`'s status code.
+      def status_code : Int32
+        @response.status_code
+      end
+
+      # `#response`'s body.
+      def body : String
+        @response.body
+      end
+
+      # `#response`'s headers.
+      def headers : ::HTTP::Headers
+        @response.headers
       end
 
       # Assert response *status_code*.
       def assert(status_code : Int)
-        @response.status_code.should eq status_code
+        status_code.should eq status_code
       end
 
       # Assert response *status_code* and *body*.
       def assert(status_code : Int, body : String)
         assert(status_code)
-        @response.body.should eq body
+        body.should eq body
       end
 
       # Assert response *status_code*, *body* and *headers*.
       def assert(status_code : Int, body : String, headers : Hash(String, String))
         assert(status_code, body)
-        @response.headers.should eq headers
+        headers.should eq headers
+      end
+
+      protected def initialize(@response)
       end
     end
 
@@ -87,32 +105,40 @@ module Onyx::HTTP
       # Direct socket accessor, if needed.
       getter socket : ::HTTP::WebSocket
 
-      def initialize(@socket)
+      # Reponses history.
+      getter responses = Array(String | Bytes).new
+
+      # Send *payload* to the `#socket`.
+      def send(payload)
+        @socket.send(payload)
       end
 
-      # Assert socket response. It sends *request*, *wait*s and asserts
-      # the response to be equal to *expected*.
-      def assert_response(
-        request : String | Bytes,
-        expected : String | Bytes,
-        wait : Time::Span | Number = 0.1.seconds
-      )
-        response : String | Bytes | Nil = nil
+      # Assert the latest socket response after *wait*.
+      # It includes `sleep`, which allows a websocket handler to process the request.
+      #
+      # ```
+      # socket.send("ping")
+      # socket.assert_response("pong")
+      # ```
+      def assert_response(expected, wait : Time::Span | Number = 0.1.seconds)
+        sleep(wait)
+        responses.last?.should eq expected
+      end
 
-        if expected.is_a?(String)
-          @socket.on_message do |message|
-            response = message
-          end
-        else
-          @socket.on_binary do |bytes|
-            response = bytes
-          end
+      # Send the *request* and then call `#assert_response` with given arguments.
+      def assert_response(request, *args, **nargs)
+        send(request)
+        assert_response(*args, **nargs)
+      end
+
+      protected def initialize(@socket)
+        @socket.on_message do |message|
+          responses.push(message)
         end
 
-        @socket.send(request)
-        sleep(wait)
-
-        response.should eq expected
+        @socket.on_binary do |bytes|
+          responses.push(bytes)
+        end
       end
     end
   end
