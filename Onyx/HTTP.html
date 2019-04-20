@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.27.2">
+<meta name="generator" content="Crystal Docs 0.28.0">
 
 
 <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -46,6 +46,11 @@
       
         <ul>
   
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/EDA" data-name="onyx::eda">
+      <a href="../Onyx/EDA.html">EDA</a>
+      
+    </li>
+  
   <li class="parent open current" data-id="github.com/onyxframework/onyx/Onyx/HTTP" data-name="onyx::http">
       <a href="../Onyx/HTTP.html">HTTP</a>
       
@@ -56,8 +61,33 @@
       
     </li>
   
+  <li class="parent " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Spec" data-name="onyx::http::spec">
+      <a href="../Onyx/HTTP/Spec.html">Spec</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Spec/ResponseWrapper" data-name="onyx::http::spec::responsewrapper">
+      <a href="../Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Spec/WebSocketWrapper" data-name="onyx::http::spec::websocketwrapper">
+      <a href="../Onyx/HTTP/Spec/WebSocketWrapper.html">WebSocketWrapper</a>
+      
+    </li>
+  
 </ul>
 
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/SQL" data-name="onyx::sql">
+      <a href="../Onyx/SQL.html">SQL</a>
       
     </li>
   
@@ -103,29 +133,36 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/bf4fcb94be96a76edfde7c3b088839ef036c73b8/lib/onyx-http/src/onyx-http.cr#L3" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/lib/onyx-http/src/onyx-http.cr#L3" target="_blank">
         lib/onyx-http/src/onyx-http.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/bf4fcb94be96a76edfde7c3b088839ef036c73b8/lib/onyx-http/src/onyx-http/error.cr#L1" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/lib/onyx-http/src/onyx-http/error.cr#L1" target="_blank">
         lib/onyx-http/src/onyx-http/error.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/bf4fcb94be96a76edfde7c3b088839ef036c73b8/lib/onyx-http/src/onyx-http/server.cr#L3" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/lib/onyx-http/src/onyx-http/server.cr#L3" target="_blank">
         lib/onyx-http/src/onyx-http/server.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/bf4fcb94be96a76edfde7c3b088839ef036c73b8/src/onyx/http.cr#L75" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L6" target="_blank">
         onyx/http.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http/spec.cr#L3" target="_blank">
+        onyx/http/spec.cr
       </a>
     
     <br/>
@@ -137,9 +174,169 @@
 
 
 
+  <h2>Class Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#delete%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.delete</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a DELETE route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.delete</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a DELETE route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.get</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a GET route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.get</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a GET route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#head%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.head</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a HEAD route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#head%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.head</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a HEAD route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on%28%2Aargs%2C%2A%2Anargs%2C%26block%3AOnyx%3A%3AHTTP%3A%3AMiddleware%3A%3ARouter-%3E%29-class-method" class="signature"><strong>.on</strong>(*args, **nargs, &block : Onyx::HTTP::Middleware::Router -> )</a>
+        
+          <div class="summary"><p>Draw routes for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.options</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a OPTIONS route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.options</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a OPTIONS route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#patch%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.patch</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a PATCH route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#patch%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.patch</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a PATCH route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.post</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a POST route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.post</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a POST route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#put%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.put</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a PUT route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#put%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.put</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a PUT route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#renderer-class-method" class="signature"><strong>.renderer</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#renderer%3D%28value%29-class-method" class="signature"><strong>.renderer=</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#router-class-method" class="signature"><strong>.router</strong></a>
+        
+          <div class="summary"><p>The singleton <code>HTTP::Router</code> instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ws%28%2Aargs%2C%2A%2Anargs%2C%26block%3A%3A%3AHTTP%3A%3AWebSocket%2CHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method" class="signature"><strong>.ws</strong>(*args, **nargs, &block : ::HTTP::WebSocket, HTTP::Server::Context -> Nil)</a>
+        
+          <div class="summary"><p>Define a "ws://" route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ws%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.ws</strong>(*args, **nargs)</a>
+        
+          <div class="summary"><p>Define a "ws://" route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
+
+
+  <h2>Macro Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#listen%28host%3D%26quot%3B127.0.0.1%26quot%3B%2Cport%3D3000%2Creuse_port%3Dfalse%2C%2A%2Ahandler_options%2C%26block%29-macro" class="signature"><strong>listen</strong>(host = <span class="s">&quot;127.0.0.1&quot;</span>, port = <span class="n">3000</span>, reuse_port = <span class="n">false</span>, **handler_options, &block)</a>
+        
+          <div class="summary"><p>Instantiate an <code>Onyx::HTTP::Server</code>, bind it to the <em>host</em> and <em>port</em> and start listening.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#render%28io%2Cpath%29-macro" class="signature"><strong>render</strong>(io, path)</a>
+        
+          <div class="summary"><p>Render a template at <em>path</em> into <em>io</em> with <a href="https://github.com/jeromegn/kilt" target="_blank">Kilt</a>.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -150,9 +347,432 @@
 
 
 
+  <h2>Class Method Detail</h2>
+  
+    <div class="entry-detail" id="delete(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>delete</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#delete%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a DELETE route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#delete</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>delete</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#delete%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a DELETE route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#delete</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>get</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#get%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a GET route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#get</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>get</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#get%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a GET route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#get</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="head(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>head</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#head%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a HEAD route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#head</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="head(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>head</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#head%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a HEAD route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#head</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on(*args,**nargs,&amp;block:Onyx::HTTP::Middleware::Router-&gt;)-class-method">
+      <div class="signature">
+        
+        def self.<strong>on</strong>(*args, **nargs, &block : Onyx::HTTP::Middleware::Router -> )
+
+        <a class="method-permalink" href="#on%28%2Aargs%2C%2A%2Anargs%2C%26block%3AOnyx%3A%3AHTTP%3A%3AMiddleware%3A%3ARouter-%3E%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Draw routes for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>HTTP::Router#draw</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L34" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>options</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#options%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a OPTIONS route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#options</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>options</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#options%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a OPTIONS route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#options</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="patch(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>patch</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#patch%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a PATCH route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#patch</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="patch(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>patch</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#patch%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a PATCH route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#patch</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>post</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#post%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a POST route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#post</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>post</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#post%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a POST route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#post</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="put(*args,**nargs,&amp;block:HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>put</strong>(*args, **nargs, &block : HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#put%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a PUT route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#put</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="put(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>put</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#put%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a PUT route for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#put</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="renderer-class-method">
+      <div class="signature">
+        
+        def self.<strong>renderer</strong>
+
+        <a class="method-permalink" href="#renderer-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L58" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="renderer=(value)-class-method">
+      <div class="signature">
+        
+        def self.<strong>renderer=</strong>(value)
+
+        <a class="method-permalink" href="#renderer%3D%28value%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L54" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="router-class-method">
+      <div class="signature">
+        
+        def self.<strong>router</strong>
+
+        <a class="method-permalink" href="#router-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>The singleton <code>HTTP::Router</code> instance.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L39" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ws(*args,**nargs,&amp;block:::HTTP::WebSocket,HTTP::Server::Context-&gt;Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>ws</strong>(*args, **nargs, &block : ::HTTP::WebSocket, HTTP::Server::Context -> Nil)
+
+        <a class="method-permalink" href="#ws%28%2Aargs%2C%2A%2Anargs%2C%26block%3A%3A%3AHTTP%3A%3AWebSocket%2CHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a "ws://" route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#ws</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ws(*args,**nargs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>ws</strong>(*args, **nargs)
+
+        <a class="method-permalink" href="#ws%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Define a "ws://" route with block for the singleton <code><a href="../Onyx/HTTP.html#router-class-method">.router</a></code>.
+See <code>Onyx::HTTP::Router#ws</code>.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L28" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
+
+
+  <h2>Macro Detail</h2>
+  
+    <div class="entry-detail" id="listen(host=&amp;quot;127.0.0.1&amp;quot;,port=3000,reuse_port=false,**handler_options,&amp;block)-macro">
+      <div class="signature">
+        
+        macro <strong>listen</strong>(host = <span class="s">&quot;127.0.0.1&quot;</span>, port = <span class="n">3000</span>, reuse_port = <span class="n">false</span>, **handler_options, &block)
+
+        <a class="method-permalink" href="#listen%28host%3D%26quot%3B127.0.0.1%26quot%3B%2Cport%3D3000%2Creuse_port%3Dfalse%2C%2A%2Ahandler_options%2C%26block%29-macro">#</a>
+      </div>
+      
+        <div class="doc"><p>Instantiate an <code>Onyx::HTTP::Server</code>, bind it to the <em>host</em> and <em>port</em> and start listening.
+Routes for it are defined with singleton <code><a href="../Onyx/HTTP.html#get%28%2Aargs%2C%2A%2Anargs%2C%26block%3AHTTP%3A%3AServer%3A%3AContext-%3ENil%29-class-method">Onyx::HTTP.get</a></code> methods and its siblings.</p>
+
+<p>You can insert your custom code into the <code>&block</code>.
+At this point, <code>handlers</code> variable will be available.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http/spec.cr#L4" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="render(io,path)-macro">
+      <div class="signature">
+        
+        macro <strong>render</strong>(io, path)
+
+        <a class="method-permalink" href="#render%28io%2Cpath%29-macro">#</a>
+      </div>
+      
+        <div class="doc"><p>Render a template at <em>path</em> into <em>io</em> with <a href="https://github.com/jeromegn/kilt" target="_blank">Kilt</a>.</p>
+
+<pre><code><span class="t">Onyx</span><span class="t">::</span><span class="t">HTTP</span>.render(env.response, <span class="s">&quot;./hello.html.ecr&quot;</span>)
+<span class="c"># Expands to</span>
+<span class="t">Kilt</span>.embed(<span class="s">&quot;./hello.html.ecr&quot;</span>, env.response)</code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/onyxframework/onyx/blob/5e9efde5fe45dbff451908c5bcf21c00a2a707c6/src/onyx/http.cr#L50" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 </div>

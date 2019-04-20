@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.27.2">
+<meta name="generator" content="Crystal Docs 0.28.0">
 
 
 <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -46,6 +46,11 @@
       
         <ul>
   
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/EDA" data-name="onyx::eda">
+      <a href="Onyx/EDA.html">EDA</a>
+      
+    </li>
+  
   <li class="parent " data-id="github.com/onyxframework/onyx/Onyx/HTTP" data-name="onyx::http">
       <a href="Onyx/HTTP.html">HTTP</a>
       
@@ -56,8 +61,33 @@
       
     </li>
   
+  <li class="parent " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Spec" data-name="onyx::http::spec">
+      <a href="Onyx/HTTP/Spec.html">Spec</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Spec/ResponseWrapper" data-name="onyx::http::spec::responsewrapper">
+      <a href="Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/HTTP/Spec/WebSocketWrapper" data-name="onyx::http::spec::websocketwrapper">
+      <a href="Onyx/HTTP/Spec/WebSocketWrapper.html">WebSocketWrapper</a>
+      
+    </li>
+  
 </ul>
 
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/onyxframework/onyx/Onyx/SQL" data-name="onyx::sql">
+      <a href="Onyx/SQL.html">SQL</a>
       
     </li>
   
@@ -99,7 +129,7 @@
 
 <p>Thanks to all these patrons, the framework lives and prospers 🙏</p>
 
-<p><a href="https://github.com/ljuti" target="_blank">Lauri Jutila</a>, <a href="https://seendex.ru" target="_blank">Alexander Maslov</a>, Dainel Vera</p>
+<p><a href="https://github.com/ljuti" target="_blank">Lauri Jutila</a>, <a href="https://seendex.ru" target="_blank">Alexander Maslov</a>, Anton Yordanov</p>
 
 <p><em>You can become a patron too in exchange of prioritized support and other perks</em></p>
 
@@ -112,19 +142,21 @@
 <pre><code class="language-yaml">dependencies:
   onyx:
     github: onyxframework/onyx
-    version: ~> 0.3.0</code></pre>
+    version: ~> 0.4.0</code></pre>
 
-<p>This shard follows <a href="http://semver.org/" target="_blank">Semantic Versioning v2.0.0</a>, so check <a href="https://github.com/onyxframework/rest/releases" target="_blank">releases</a> and change the <code>version</code> accordingly. Please visit <a href="https://github.com/crystal-lang/shards" target="_blank">github.com/crystal-lang/shards</a> to know more about Crystal shards.</p>
+<p>This shard follows <a href="http://semver.org/" target="_blank">Semantic Versioning v2.0.0</a>, so check <a href="https://github.com/onyxframework/rest/releases" target="_blank">releases</a> and change the <code>version</code> accordingly.</p>
+
+<blockquote>Note that until Crystal is officially released, this shard would be in beta state (<code>0.*.*</code>), with every <strong>minor</strong> release considered breaking. For example, <code>0.1.0</code> → <code>0.2.0</code> is breaking and <code>0.1.0</code> → <code>0.1.1</code> is not.</blockquote>
 
 <p>Note that this shard does <strong>not</strong> have implicit dependencies for other framework components. For example, to use <code>"onyx/http"</code> macros, you must add <code>onyx-http</code> dependendency as well:</p>
 
 <pre><code class="language-yaml">dependencies:
   onyx:
     github: onyxframework/onyx
-    version: ~> 0.3.0
+    version: ~> 0.4.0
   onyx-http:
     github: onyxframework/http
-    version: ~> 0.7.0</code></pre>
+    version: ~> 0.8.0</code></pre>
 
 <h2>Documentation 📚</h2>
 
