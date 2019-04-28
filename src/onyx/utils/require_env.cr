@@ -6,7 +6,7 @@ macro runtime_env(*envs)
 end
 
 # Define a required buildtime environment variable which would raise on missing.
-macro buildtime_env(*env)
+macro buildtime_env(*envs)
   {% for env in envs %}
     {% raise "Buildtime environment variable #{env.id} is not defined!" unless env("#{env.id}") %}
   {% end %}
