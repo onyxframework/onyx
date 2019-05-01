@@ -28,7 +28,7 @@ The framework consists of the following loosely coupled components:
 
 Thanks to all these patrons, the framework lives and prospers 🙏
 
-[Lauri Jutila](https://github.com/ljuti), [Alexander Maslov](https://seendex.ru), Anton Yordanov
+[Lauri Jutila](https://github.com/ljuti), [Alexander Maslov](https://seendex.ru), Anton Yordanov, Dainel Vera
 
 *You can become a patron too in exchange of prioritized support and other perks*
 
