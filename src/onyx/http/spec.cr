@@ -82,19 +82,19 @@ module Onyx::HTTP
 
       # Assert response *status_code*.
       def assert(status_code : Int)
-        status_code.should eq status_code
+        self.status_code.should eq status_code
       end
 
       # Assert response *status_code* and *body*.
       def assert(status_code : Int, body : String)
         assert(status_code)
-        body.should eq body
+        self.body.should eq body
       end
 
       # Assert response *status_code*, *body* and *headers*.
       def assert(status_code : Int, body : String, headers : Hash(String, String))
         assert(status_code, body)
-        headers.should eq headers
+        self.headers.should eq headers
       end
 
       protected def initialize(@response)
