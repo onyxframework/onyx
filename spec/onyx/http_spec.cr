@@ -29,6 +29,10 @@ Onyx::HTTP.get "/" do |env|
   env.response << "Hello Onyx"
 end
 
+Onyx::HTTP.get "/proc" do
+  TestView.new("bar")
+end
+
 Onyx::HTTP.on do |r|
   r.on "/foo" do
     r.on "/:bar" do
@@ -54,6 +58,13 @@ describe "onyx/http" do
     it "returns 200 Hello Onyx" do
       response = Onyx::HTTP::Spec.get("/")
       response.assert(200, "Hello Onyx")
+    end
+  end
+
+  describe "/proc" do
+    it "returns 200 foo=bar" do
+      response = Onyx::HTTP::Spec.get("/proc")
+      response.assert(200, "foo = bar")
     end
   end
 

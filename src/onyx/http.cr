@@ -7,7 +7,7 @@ module Onyx::HTTP
   {% for method in Onyx::HTTP::Middleware::Router::HTTP_METHODS %}
     # Define a {{method.upcase.id}} route with block for the singleton `.router`.
     # See `Onyx::HTTP::Router#{{method.id}}`.
-    def self.{{method.id}}(*args, **nargs, &block : ::HTTP::Server::Context -> Nil)
+    def self.{{method.id}}(*args, **nargs, &block : ::HTTP::Server::Context -> _)
       Onyx::HTTP::Singleton.instance.router.{{method.id}}(*args, **nargs, &block)
     end
 
@@ -20,7 +20,7 @@ module Onyx::HTTP
 
   # Define a "ws://" route with block for the singleton `.router`.
   # See `Onyx::HTTP::Router#ws`.
-  def self.ws(*args, **nargs, &block : ::HTTP::WebSocket, ::HTTP::Server::Context -> Nil)
+  def self.ws(*args, **nargs, &block : ::HTTP::WebSocket, ::HTTP::Server::Context -> _)
     Onyx::HTTP::Singleton.instance.router.ws(*args, **nargs, &block)
   end
 
