@@ -18,7 +18,7 @@ module Onyx
   # # DEBUG [12:45:52.520 #13543] Hello world!
   # ```
   class_property logger : Logger = Logger.new(
-    ENV["CRYSTAL_ENV"] == "benchmarking" ? File.open(File::DEVNULL, "w") : STDOUT,
+    ENV["CRYSTAL_ENV"] == "benchmarking" ? File.open(File::NULL, "w") : STDOUT,
     case ENV["CRYSTAL_ENV"]
     when "benchmarking" then Logger::FATAL
     when "production"   then Logger::INFO
