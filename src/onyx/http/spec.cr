@@ -79,6 +79,11 @@ module Onyx::HTTP
       def headers : ::HTTP::Headers
         @response.headers
       end
+      
+      # `#response`'s cookies.
+      def cookies : ::HTTP::Cookies
+        @response.cookies
+      end
 
       # Assert response *status_code*.
       def assert(status_code : Int)
