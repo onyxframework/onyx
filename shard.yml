@@ -4,7 +4,7 @@ version: 0.5.0
 authors:
   - Vlad Faust <mail@vladfaust.com>
 
-crystal: 0.29.0
+crystal: 0.30.1
 
 license: MIT
 
@@ -16,13 +16,13 @@ dependencies:
 development_dependencies:
   onyx-http:
     github: onyxframework/http
-    version: ~> 0.8.0
+    version: ~> 0.9.0
   pg:
     github: will/crystal-pg
-    version: ~> 0.16.0
+    version: ~> 0.18.0
   onyx-sql:
     github: onyxframework/sql
-    version: ~> 0.8.0
+    version: ~> 0.9.0
   onyx-eda:
     github: onyxframework/eda
-    version: ~> 0.3.0
+    version: ~> 0.4.0
