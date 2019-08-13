@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.29.0">
+<meta name="generator" content="Crystal Docs 0.30.1">
 
 
 <link href="../../css/style.css" rel="stylesheet" type="text/css">
@@ -117,7 +117,7 @@
 
   <p>HTTP testing module. It helps to test your Onyx application.
 <code>require "onyx/http/spec"</code> <strong>before</strong> your application, so it
-spawn a server instead of blocking on <code><a href="../../Onyx/HTTP.html#listen%28host%3D%26quot%3B127.0.0.1%26quot%3B%2Cport%3D3000%2Creuse_port%3Dfalse%2C%2A%2Ahandler_options%2C%26block%29-macro">Onyx::HTTP.listen</a></code>.</p>
+spawn a server instead of blocking on <code><a href="../../Onyx/HTTP.html#listen(host=&quot;127.0.0.1&quot;,port=3000,reuse_port=false,**handler_options,&block)-macro">Onyx::HTTP.listen</a></code>.</p>
 
 
 
@@ -135,7 +135,7 @@ spawn a server instead of blocking on <code><a href="../../Onyx/HTTP.html#listen
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L21" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L21" target="_blank">
         onyx/http/spec.cr
       </a>
     
@@ -157,66 +157,66 @@ spawn a server instead of blocking on <code><a href="../../Onyx/HTTP.html#listen
       </li>
     
       <li class="entry-summary">
-        <a href="#client%3D%28client%3A%3A%3AHTTP%3A%3AClient%29-class-method" class="signature"><strong>.client=</strong>(client : ::HTTP::Client)</a>
+        <a href="#client=(client:::HTTP::Client)-class-method" class="signature"><strong>.client=</strong>(client : ::HTTP::Client)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#client%3F-class-method" class="signature"><strong>.client?</strong></a>
+        <a href="#client?-class-method" class="signature"><strong>.client?</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#delete%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.delete</strong>(*args, **nargs)</a>
+        <a href="#delete(*args,**nargs)-class-method" class="signature"><strong>.delete</strong>(*args, **nargs)</a>
         
           <div class="summary"><p>Send <code>DELETE</code> request to the Onyx server and return <code><a href="../../Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#get%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.get</strong>(*args, **nargs)</a>
+        <a href="#get(*args,**nargs)-class-method" class="signature"><strong>.get</strong>(*args, **nargs)</a>
         
           <div class="summary"><p>Send <code>GET</code> request to the Onyx server and return <code><a href="../../Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#head%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.head</strong>(*args, **nargs)</a>
+        <a href="#head(*args,**nargs)-class-method" class="signature"><strong>.head</strong>(*args, **nargs)</a>
         
           <div class="summary"><p>Send <code>HEAD</code> request to the Onyx server and return <code><a href="../../Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#options%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.options</strong>(*args, **nargs)</a>
+        <a href="#options(*args,**nargs)-class-method" class="signature"><strong>.options</strong>(*args, **nargs)</a>
         
           <div class="summary"><p>Send <code>OPTIONS</code> request to the Onyx server and return <code><a href="../../Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#patch%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.patch</strong>(*args, **nargs)</a>
+        <a href="#patch(*args,**nargs)-class-method" class="signature"><strong>.patch</strong>(*args, **nargs)</a>
         
           <div class="summary"><p>Send <code>PATCH</code> request to the Onyx server and return <code><a href="../../Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#post%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.post</strong>(*args, **nargs)</a>
+        <a href="#post(*args,**nargs)-class-method" class="signature"><strong>.post</strong>(*args, **nargs)</a>
         
           <div class="summary"><p>Send <code>POST</code> request to the Onyx server and return <code><a href="../../Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#put%28%2Aargs%2C%2A%2Anargs%29-class-method" class="signature"><strong>.put</strong>(*args, **nargs)</a>
+        <a href="#put(*args,**nargs)-class-method" class="signature"><strong>.put</strong>(*args, **nargs)</a>
         
           <div class="summary"><p>Send <code>PUT</code> request to the Onyx server and return <code><a href="../../Onyx/HTTP/Spec/ResponseWrapper.html">ResponseWrapper</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#ws%28path%3AString%2Cheaders%3A%3A%3AHTTP%3A%3AHeaders%3D%3A%3AHTTP%3A%3AHeaders.new%29-class-method" class="signature"><strong>.ws</strong>(path : String, headers : ::HTTP::Headers = <span class="t">::</span><span class="t">HTTP</span><span class="t">::</span><span class="t">Headers</span>.<span class="k">new</span>)</a>
+        <a href="#ws(path:String,headers:::HTTP::Headers=::HTTP::Headers.new)-class-method" class="signature"><strong>.ws</strong>(path : String, headers : ::HTTP::Headers = <span class="t">::</span><span class="t">HTTP</span><span class="t">::</span><span class="t">Headers</span>.<span class="k">new</span>)</a>
         
           <div class="summary"><p>Initialize a new websocket connection to the Onyx server and return <code><a href="../../Onyx/HTTP/Spec/WebSocketWrapper.html">WebSocketWrapper</a></code>.</p></div>
         
@@ -258,13 +258,13 @@ spawn a server instead of blocking on <code><a href="../../Onyx/HTTP.html#listen
         
         def self.<strong>client=</strong>(client : ::HTTP::Client)
 
-        <a class="method-permalink" href="#client%3D%28client%3A%3A%3AHTTP%3A%3AClient%29-class-method">#</a>
+        <a class="method-permalink" href="#client=(client:::HTTP::Client)-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -274,7 +274,7 @@ spawn a server instead of blocking on <code><a href="../../Onyx/HTTP.html#listen
         
         def self.<strong>client?</strong>
 
-        <a class="method-permalink" href="#client%3F-class-method">#</a>
+        <a class="method-permalink" href="#client?-class-method">#</a>
       </div>
       
       <br/>
@@ -288,7 +288,7 @@ spawn a server instead of blocking on <code><a href="../../Onyx/HTTP.html#listen
         
         def self.<strong>delete</strong>(*args, **nargs)
 
-        <a class="method-permalink" href="#delete%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#delete(*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Send <code>DELETE</code> request to the Onyx server and
@@ -305,7 +305,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -315,7 +315,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
         
         def self.<strong>get</strong>(*args, **nargs)
 
-        <a class="method-permalink" href="#get%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#get(*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Send <code>GET</code> request to the Onyx server and
@@ -332,7 +332,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -342,7 +342,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
         
         def self.<strong>head</strong>(*args, **nargs)
 
-        <a class="method-permalink" href="#head%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#head(*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Send <code>HEAD</code> request to the Onyx server and
@@ -359,7 +359,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -369,7 +369,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
         
         def self.<strong>options</strong>(*args, **nargs)
 
-        <a class="method-permalink" href="#options%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#options(*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Send <code>OPTIONS</code> request to the Onyx server and
@@ -386,7 +386,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -396,7 +396,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
         
         def self.<strong>patch</strong>(*args, **nargs)
 
-        <a class="method-permalink" href="#patch%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#patch(*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Send <code>PATCH</code> request to the Onyx server and
@@ -413,7 +413,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -423,7 +423,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
         
         def self.<strong>post</strong>(*args, **nargs)
 
-        <a class="method-permalink" href="#post%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#post(*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Send <code>POST</code> request to the Onyx server and
@@ -440,7 +440,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -450,7 +450,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
         
         def self.<strong>put</strong>(*args, **nargs)
 
-        <a class="method-permalink" href="#put%28%2Aargs%2C%2A%2Anargs%29-class-method">#</a>
+        <a class="method-permalink" href="#put(*args,**nargs)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Send <code>PUT</code> request to the Onyx server and
@@ -467,7 +467,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -477,7 +477,7 @@ it <span class="s">&quot;returns 200 OK&quot;</span> <span class="k">do</span>
         
         def self.<strong>ws</strong>(path : String, headers : ::HTTP::Headers = <span class="t">::</span><span class="t">HTTP</span><span class="t">::</span><span class="t">Headers</span>.<span class="k">new</span>)
 
-        <a class="method-permalink" href="#ws%28path%3AString%2Cheaders%3A%3A%3AHTTP%3A%3AHeaders%3D%3A%3AHTTP%3A%3AHeaders.new%29-class-method">#</a>
+        <a class="method-permalink" href="#ws(path:String,headers:::HTTP::Headers=::HTTP::Headers.new)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Initialize a new websocket connection to the Onyx server
@@ -497,7 +497,7 @@ it <span class="s">&quot;echoes&quot;</span> <span class="k">do</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L58" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L58" target="_blank">View source</a>]
         
       </div>
     </div>

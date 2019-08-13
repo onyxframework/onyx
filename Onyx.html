@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.29.0">
+<meta name="generator" content="Crystal Docs 0.30.1">
 
 
 <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -134,35 +134,35 @@ See <a href="https://onyxframework.org" target="_blank">onyxframework.org</a>.</
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx.cr#L32" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx.cr#L32" target="_blank">
         onyx.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/logger.cr#L7" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/logger.cr#L7" target="_blank">
         onyx/logger.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/db.cr#L6" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/db.cr#L6" target="_blank">
         onyx/db.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/lib/onyx-eda/src/onyx-eda.cr#L3" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/lib/onyx-eda/src/onyx-eda.cr#L3" target="_blank">
         lib/onyx-eda/src/onyx-eda.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/lib/onyx-http/src/onyx-http.cr#L1" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/lib/onyx-http/src/onyx-http.cr#L1" target="_blank">
         lib/onyx-http/src/onyx-http.cr
       </a>
     
@@ -179,28 +179,28 @@ See <a href="https://onyxframework.org" target="_blank">onyxframework.org</a>.</
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#db%3ADB%3A%3ADatabase-class-method" class="signature"><strong>.db</strong> : DB::Database</a>
+        <a href="#db:DB::Database-class-method" class="signature"><strong>.db</strong> : DB::Database</a>
         
           <div class="summary"><p>Singleton <code>DB::Database</code> instance.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#db%3D%28db%3ADB%3A%3ADatabase%29-class-method" class="signature"><strong>.db=</strong>(db : DB::Database)</a>
+        <a href="#db=(db:DB::Database)-class-method" class="signature"><strong>.db=</strong>(db : DB::Database)</a>
         
           <div class="summary"><p>Singleton <code>DB::Database</code> instance.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#logger%3ALogger-class-method" class="signature"><strong>.logger</strong> : Logger</a>
+        <a href="#logger:Logger-class-method" class="signature"><strong>.logger</strong> : Logger</a>
         
           <div class="summary"><p>The singleton <code>Logger</code> instance.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#logger%3D%28logger%3ALogger%29-class-method" class="signature"><strong>.logger=</strong>(logger : Logger)</a>
+        <a href="#logger=(logger:Logger)-class-method" class="signature"><strong>.logger=</strong>(logger : Logger)</a>
         
           <div class="summary"><p>The singleton <code>Logger</code> instance.</p></div>
         
@@ -228,18 +228,18 @@ See <a href="https://onyxframework.org" target="_blank">onyxframework.org</a>.</
         
         def self.<strong>db</strong> : DB::Database
 
-        <a class="method-permalink" href="#db%3ADB%3A%3ADatabase-class-method">#</a>
+        <a class="method-permalink" href="#db:DB::Database-class-method">#</a>
       </div>
       
         <div class="doc"><p>Singleton <code>DB::Database</code> instance.
 It <strong>requires</strong> <code>DATABASE_URL</code> environment variable to be set.
 It would validate the connection on program run with
-<code><a href="Onyx.html#db%3ADB%3A%3ADatabase-class-method">Onyx.db</a>.scalar("SELECT 1")</code> call, raising of failure.</p></div>
+<code><a href="Onyx.html#db:DB::Database-class-method">Onyx.db</a>.scalar("SELECT 1")</code> call, raising of failure.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/db.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/db.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -249,18 +249,18 @@ It would validate the connection on program run with
         
         def self.<strong>db=</strong>(db : DB::Database)
 
-        <a class="method-permalink" href="#db%3D%28db%3ADB%3A%3ADatabase%29-class-method">#</a>
+        <a class="method-permalink" href="#db=(db:DB::Database)-class-method">#</a>
       </div>
       
         <div class="doc"><p>Singleton <code>DB::Database</code> instance.
 It <strong>requires</strong> <code>DATABASE_URL</code> environment variable to be set.
 It would validate the connection on program run with
-<code><a href="Onyx.html#db%3ADB%3A%3ADatabase-class-method">Onyx.db</a>.scalar("SELECT 1")</code> call, raising of failure.</p></div>
+<code><a href="Onyx.html#db:DB::Database-class-method">Onyx.db</a>.scalar("SELECT 1")</code> call, raising of failure.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/db.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/db.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -270,7 +270,7 @@ It would validate the connection on program run with
         
         def self.<strong>logger</strong> : Logger
 
-        <a class="method-permalink" href="#logger%3ALogger-class-method">#</a>
+        <a class="method-permalink" href="#logger:Logger-class-method">#</a>
       </div>
       
         <div class="doc"><p>The singleton <code>Logger</code> instance. It has a custom slim formatter and
@@ -285,7 +285,7 @@ level depending on <code>CRYSTAL_ENV</code> environment variable:</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/logger.cr#L29" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/logger.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -295,7 +295,7 @@ level depending on <code>CRYSTAL_ENV</code> environment variable:</p>
         
         def self.<strong>logger=</strong>(logger : Logger)
 
-        <a class="method-permalink" href="#logger%3D%28logger%3ALogger%29-class-method">#</a>
+        <a class="method-permalink" href="#logger=(logger:Logger)-class-method">#</a>
       </div>
       
         <div class="doc"><p>The singleton <code>Logger</code> instance. It has a custom slim formatter and
@@ -310,7 +310,7 @@ level depending on <code>CRYSTAL_ENV</code> environment variable:</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/logger.cr#L33" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/logger.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.29.0">
+<meta name="generator" content="Crystal Docs 0.30.1">
 
 
 <link href="../../../css/style.css" rel="stylesheet" type="text/css">
@@ -131,7 +131,7 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L104" target="_blank">
+      <a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L104" target="_blank">
         onyx/http/spec.cr
       </a>
     
@@ -150,35 +150,35 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#assert_response%28expected%2Cwait%3ATime%3A%3ASpan%7CNumber%3D0.1.seconds%29-instance-method" class="signature"><strong>#assert_response</strong>(expected, wait : Time::Span | Number = <span class="n">0.1</span>.seconds)</a>
+        <a href="#assert_response(expected,wait:Time::Span%7CNumber=0.1.seconds)-instance-method" class="signature"><strong>#assert_response</strong>(expected, wait : Time::Span | Number = <span class="n">0.1</span>.seconds)</a>
         
           <div class="summary"><p>Assert the latest socket response after <em>wait</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#assert_response%28request%2C%2Aargs%2C%2A%2Anargs%29-instance-method" class="signature"><strong>#assert_response</strong>(request, *args, **nargs)</a>
+        <a href="#assert_response(request,*args,**nargs)-instance-method" class="signature"><strong>#assert_response</strong>(request, *args, **nargs)</a>
         
-          <div class="summary"><p>Send the <em>request</em> and then call <code><a href="../../../Onyx/HTTP/Spec/WebSocketWrapper.html#assert_response%28expected%2Cwait%3ATime%3A%3ASpan%7CNumber%3D0.1.seconds%29-instance-method">#assert_response</a></code> with given arguments.</p></div>
+          <div class="summary"><p>Send the <em>request</em> and then call <code><a href="../../../Onyx/HTTP/Spec/WebSocketWrapper.html#assert_response(expected,wait:Time::Span%7CNumber=0.1.seconds)-instance-method">#assert_response</a></code> with given arguments.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#responses%3AArray%28Slice%28UInt8%29%7CString%29-instance-method" class="signature"><strong>#responses</strong> : Array(Slice(UInt8) | String)</a>
+        <a href="#responses:Array(Slice(UInt8)%7CString)-instance-method" class="signature"><strong>#responses</strong> : Array(Slice(UInt8) | String)</a>
         
           <div class="summary"><p>Reponses history.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#send%28payload%29-instance-method" class="signature"><strong>#send</strong>(payload)</a>
+        <a href="#send(payload)-instance-method" class="signature"><strong>#send</strong>(payload)</a>
         
-          <div class="summary"><p>Send <em>payload</em> to the <code><a href="../../../Onyx/HTTP/Spec/WebSocketWrapper.html#socket%3A%3A%3AHTTP%3A%3AWebSocket-instance-method">#socket</a></code>.</p></div>
+          <div class="summary"><p>Send <em>payload</em> to the <code><a href="../../../Onyx/HTTP/Spec/WebSocketWrapper.html#socket:::HTTP::WebSocket-instance-method">#socket</a></code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#socket%3A%3A%3AHTTP%3A%3AWebSocket-instance-method" class="signature"><strong>#socket</strong> : ::HTTP::WebSocket</a>
+        <a href="#socket:::HTTP::WebSocket-instance-method" class="signature"><strong>#socket</strong> : ::HTTP::WebSocket</a>
         
           <div class="summary"><p>Direct socket accessor, if needed.</p></div>
         
@@ -226,7 +226,7 @@
         
         def <strong>assert_response</strong>(expected, wait : Time::Span | Number = <span class="n">0.1</span>.seconds)
 
-        <a class="method-permalink" href="#assert_response%28expected%2Cwait%3ATime%3A%3ASpan%7CNumber%3D0.1.seconds%29-instance-method">#</a>
+        <a class="method-permalink" href="#assert_response(expected,wait:Time::Span%7CNumber=0.1.seconds)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Assert the latest socket response after <em>wait</em>.
@@ -238,7 +238,7 @@ socket.assert_response(<span class="s">&quot;pong&quot;</span>)</code></pre></di
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L123" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L123" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -248,15 +248,15 @@ socket.assert_response(<span class="s">&quot;pong&quot;</span>)</code></pre></di
         
         def <strong>assert_response</strong>(request, *args, **nargs)
 
-        <a class="method-permalink" href="#assert_response%28request%2C%2Aargs%2C%2A%2Anargs%29-instance-method">#</a>
+        <a class="method-permalink" href="#assert_response(request,*args,**nargs)-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Send the <em>request</em> and then call <code><a href="../../../Onyx/HTTP/Spec/WebSocketWrapper.html#assert_response%28expected%2Cwait%3ATime%3A%3ASpan%7CNumber%3D0.1.seconds%29-instance-method">#assert_response</a></code> with given arguments.</p></div>
+        <div class="doc"><p>Send the <em>request</em> and then call <code><a href="../../../Onyx/HTTP/Spec/WebSocketWrapper.html#assert_response(expected,wait:Time::Span%7CNumber=0.1.seconds)-instance-method">#assert_response</a></code> with given arguments.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L129" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L129" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -266,7 +266,7 @@ socket.assert_response(<span class="s">&quot;pong&quot;</span>)</code></pre></di
         
         def <strong>responses</strong> : Array(Slice(UInt8) | String)
 
-        <a class="method-permalink" href="#responses%3AArray%28Slice%28UInt8%29%7CString%29-instance-method">#</a>
+        <a class="method-permalink" href="#responses:Array(Slice(UInt8)%7CString)-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Reponses history.</p></div>
@@ -274,7 +274,7 @@ socket.assert_response(<span class="s">&quot;pong&quot;</span>)</code></pre></di
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L111" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L111" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -284,15 +284,15 @@ socket.assert_response(<span class="s">&quot;pong&quot;</span>)</code></pre></di
         
         def <strong>send</strong>(payload)
 
-        <a class="method-permalink" href="#send%28payload%29-instance-method">#</a>
+        <a class="method-permalink" href="#send(payload)-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Send <em>payload</em> to the <code><a href="../../../Onyx/HTTP/Spec/WebSocketWrapper.html#socket%3A%3A%3AHTTP%3A%3AWebSocket-instance-method">#socket</a></code>.</p></div>
+        <div class="doc"><p>Send <em>payload</em> to the <code><a href="../../../Onyx/HTTP/Spec/WebSocketWrapper.html#socket:::HTTP::WebSocket-instance-method">#socket</a></code>.</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L112" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L112" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -302,7 +302,7 @@ socket.assert_response(<span class="s">&quot;pong&quot;</span>)</code></pre></di
         
         def <strong>socket</strong> : ::HTTP::WebSocket
 
-        <a class="method-permalink" href="#socket%3A%3A%3AHTTP%3A%3AWebSocket-instance-method">#</a>
+        <a class="method-permalink" href="#socket:::HTTP::WebSocket-instance-method">#</a>
       </div>
       
         <div class="doc"><p>Direct socket accessor, if needed.</p></div>
@@ -310,7 +310,7 @@ socket.assert_response(<span class="s">&quot;pong&quot;</span>)</code></pre></di
       <br/>
       <div>
         
-          [<a href="https://github.com/onyxframework/onyx/blob/9402f0a81bf911818300bcf35bdfc0b652837420/src/onyx/http/spec.cr#L108" target="_blank">View source</a>]
+          [<a href="https://github.com/onyxframework/onyx/blob/3311e30c2e6ace4fba3cc7ce9b666bb4d84accef/src/onyx/http/spec.cr#L108" target="_blank">View source</a>]
         
       </div>
     </div>
